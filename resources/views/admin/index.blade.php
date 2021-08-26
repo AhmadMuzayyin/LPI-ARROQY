@@ -136,7 +136,7 @@
                         </div>
                         <div class="card-body">
                             <ul>
-                                <li>0. Unconfirm</li>
+                                <li>0. Belum dikonfirmasi</li>
                                 <li>1. Admin</li>
                                 <li>2. Pendidik</li>
                                 <li>3. Santri</li>

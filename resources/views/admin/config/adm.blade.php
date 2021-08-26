@@ -37,7 +37,6 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Nama</th>
-                                                <th>Email</th>
                                                 <th>Role</th>
                                                 <th><i class="fas fa-cog"></i></th>
                                             </tr>
@@ -48,7 +47,6 @@
                                                 <tr>
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $a->name }}</td>
-                                                    <td>{{ $a->email }}</td>
                                                     @if ($a->is_admin == null)
                                                         <td>Belum dikonfirmasi</td>
                                                     @elseif($a->is_admin == 1)
@@ -64,7 +62,7 @@
                                                         <div class="btn-group btn-group-sm" role="group"
                                                             aria-label="Basic example">
                                                             <button type="button" id="editadmin"
-                                                                class="btn btn-success ModalAdmin"
+                                                                class="btn btn-primary ModalAdmin"
                                                                 data-id="{{ $a->id }}">
                                                                 <i class="fas fa-user-edit"></i>
                                                             </button>
@@ -264,6 +262,5 @@
             });
 
         });
-
     </script>
 @endpush

@@ -171,7 +171,7 @@
                         <i class="fas fa-cog"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <form action="{{ route('logout') }}">
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="dropdown-item">
                                 <i class="fas fa-sign-out-alt mr-2"></i> Keluar
@@ -251,6 +251,17 @@
 
                             <li class="nav-header">KONFIGURASI</li>
                             <li class="nav-item">
+                                <a href="{{ url('/user') }}"
+                                    class="nav-link {{ Request::is('user') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-users-cog"></i>
+                                    <p>
+                                        Perizinan Pengguna
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- admin --}}
+                            <li class="nav-header">POSTINGAN</li>
+                            <li class="nav-item">
                                 <a href="{{ url('/profil') }}"
                                     class="nav-link {{ Request::is('profil') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-id-card"></i>
@@ -261,16 +272,41 @@
                             </li>
                             {{-- Profil --}}
                             <li class="nav-item">
-                                <a href="{{ url('/user') }}"
-                                    class="nav-link {{ Request::is('user') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-users-cog"></i>
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-images"></i>
                                     <p>
-                                        Kelola Pengguna
+                                        Galeri
                                     </p>
                                 </a>
                             </li>
-                            {{-- admin --}}
-
+                            {{-- Galeri --}}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-newspaper"></i>
+                                    <p>
+                                        Berita
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Berita --}}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chalkboard"></i>
+                                    <p>
+                                        Akademik
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Akademik --}}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-graduation-cap"></i>
+                                    <p>
+                                        Alumni
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Alumni --}}
                         </ul>
                     </nav>
                 @elseif (Auth()->user()->is_admin == 2)

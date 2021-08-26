@@ -27,14 +27,8 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Monthly Recap Report</h5>
-                                <div class="card-tools float-sm-right">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                </div>
+                                <h5 class="card-title">Data Alumni</h5>
+                                {{-- <div class="card-tools float-sm-right"></div> --}}
 
                             </div>
                             <!-- /.card-header -->
@@ -43,7 +37,8 @@
                                     <div class="col-sm-2" style="margin-bottom: 2%">
                                         <a href="#" type="button" class="btn btn-block bg-gradient-info btn-sm m-0"
                                             data-toggle="modal" data-target="#exampleModal"><i
-                                                class="nav-icon fas fa-user-plus"></i>Tambah Santri</a>
+                                                class="nav-icon fas fa-user-plus"></i>Tambah Santri
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="table-responsive">

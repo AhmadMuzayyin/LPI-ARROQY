@@ -2,23 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class AdministratorController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function santri()
     {
-        return view('admin.config.adm', [
-            'title' => 'Administrator',
-            'active' => 'user',
-            'user' => User::all()
+        //
+    }
+
+    public function pendidik()
+    {
+        //
+    }
+
+    public function alumni()
+    {
+        return view('admin.alumni.index', [
+            'title' => 'Alumni'
         ]);
     }
 
@@ -74,23 +80,7 @@ class AdministratorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
-        $id = $request->user_id;
-        $is_admin = $request->role;
-
-        if ($is_admin == 1) {
-            $role = 1;
-            DB::table('users')->where('id', $id)->update(['is_admin' => $role]);
-        } elseif ($is_admin == 2) {
-            $role = 2;
-            DB::table('users')->where('id', $id)->update(['is_admin' => $role]);
-        } elseif ($is_admin == 3) {
-            $role = 3;
-            DB::table('users')->where('id', $id)->update(['is_admin' => $role]);
-        } elseif ($is_admin == 4) {
-            $role = 4;
-            DB::table('users')->where('id', $id)->update(['is_admin' => $role]);
-        }
+        //
     }
 
     /**
