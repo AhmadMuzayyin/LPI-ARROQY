@@ -35,7 +35,8 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ url('/admin') }}" class="nav-link">Home</a>
@@ -85,7 +86,8 @@
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-danger"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">Call me whenever you can...</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -102,7 +104,8 @@
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-muted"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">I got your message bro</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -210,7 +213,7 @@
                 </div>
 
                 <!-- Sidebar Menu -->
-                @if (Auth()->user()->is_admin == 1)
+                @if (Auth()->user()->role == 1)
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
@@ -309,7 +312,7 @@
                             {{-- Alumni --}}
                         </ul>
                     </nav>
-                @elseif (Auth()->user()->is_admin == 2)
+                @elseif (Auth()->user()->role == 2)
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
@@ -341,7 +344,7 @@
 
                         </ul>
                     </nav>
-                @elseif (Auth()->user()->is_admin == NULL)
+                @elseif (Auth()->user()->role == NULL)
                 @endif
 
                 <!-- /.sidebar-menu -->

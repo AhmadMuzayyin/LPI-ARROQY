@@ -21,28 +21,58 @@ class DatabaseSeeder extends Seeder
 
         // create user admin
         User::create([
-            'name' => 'Admin',
-            'username' => 'admin',
-            'is_admin' => '1',
-            'email' => 'admin@lpi-arroqy.com',
+            'fullname' => 'Administrator',
+            'nickname' => 'admin',
+            'role' => '1',
+            'email' => 'admin@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
-            'email_verified_at' => now()
+            'email_verified_at' => now(),
+            'profil_photo' => 'profil.jpg'
         ]);
         User::create([
-            'name' => 'Pendidik',
-            'username' => 'pendidik',
-            'is_admin' => '2',
-            'email' => 'pendidik@lpi-arroqy.com',
+            'fullname' => 'Admin E-Learning',
+            'nickname' => 'admin e-learning',
+            'role' => '2',
+            'email' => 'admin.e-learning@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
-            'email_verified_at' => now()
+            'email_verified_at' => now(),
+            'profil_photo' => 'profil.jpg'
         ]);
         User::create([
-            'name' => 'Alumni',
-            'username' => 'alumni',
-            'is_admin' => '4',
-            'email' => 'alumni@lpi-arroqy.com',
+            'fullname' => 'Admin Perpustakaan',
+            'nickname' => 'admin perpustakaan',
+            'role' => '3',
+            'email' => 'admin.perpus@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
-            'email_verified_at' => now()
+            'email_verified_at' => now(),
+            'profil_photo' => 'profil.jpg'
+        ]);
+        User::create([
+            'fullname' => 'Pendidik',
+            'nickname' => 'pendidik',
+            'role' => '4',
+            'email' => 'pendidik@lpi-arroqy.ac.id',
+            'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'profil_photo' => 'profil.jpg'
+        ]);
+        User::create([
+            'fullname' => 'Santri',
+            'nickname' => 'santri',
+            'role' => '5',
+            'email' => 'santri@lpi-arroqy.ac.id',
+            'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'profil_photo' => 'profil.jpg'
+        ]);
+        User::create([
+            'fullname' => 'Alumni',
+            'nickname' => 'alumni',
+            'role' => '6',
+            'email' => 'alumni@lpi-arroqy.ac.id',
+            'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'profil_photo' => 'profil.jpg'
         ]);
 
         // create default profil

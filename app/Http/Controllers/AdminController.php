@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class AdminController extends Controller
         return view('admin.index', [
             'title' => 'Dashboard',
             'active' => 'dashboard',
-            'user' => Student::all()
+            'user' => User::all()
         ]);
     }
 

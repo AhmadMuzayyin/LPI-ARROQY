@@ -111,11 +111,11 @@
                             <div class="row">
                                 <h1>
 
-                                    @if (Auth()->user()->is_admin == 1)
+                                    @if (Auth()->user()->role == 1)
                                         Selamat Datang {{ Auth::user()->name }}
-                                    @elseif (Auth()->user()->is_admin == 2)
+                                    @elseif (Auth()->user()->role == 2)
                                         Selamat Datang {{ Auth::user()->name }}
-                                    @elseif (Auth()->user()->is_admin == NULL)
+                                    @elseif (Auth()->user()->role == NULL)
                                         Silahkan Hubungi Administrator!
                                     @endif
 
@@ -136,11 +136,12 @@
                         </div>
                         <div class="card-body">
                             <ul>
-                                <li>1. Admin</li>
-                                <li>2. Pendidik</li>
-                                <li>3. Santri</li>
-                                <li>4. Alumni</li>
-                                <li>5. Belum dikonfirmasi</li>
+                                <li>1. Administrator (Admin Utama)</li>
+                                <li>2. Admin E - Learning</li>
+                                <li>3. Admin Perpustakaan</li>
+                                <li>4. Pendidik</li>
+                                <li>5. Santri</li>
+                                <li>6. Alumni</li>
                             </ul>
                         </div>
                     </div>
