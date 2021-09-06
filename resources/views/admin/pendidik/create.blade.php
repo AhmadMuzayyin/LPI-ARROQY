@@ -23,8 +23,23 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <form action="{{ url('alumni') }}" method="post">
+                                <form action="{{ url('pendidik') }}" method="post">
                                     @csrf
+                                    <div class="form-group">
+                                        <label for="nis">NIP</label>
+                                        <input type="text"
+                                            class="form-control @error('nis')
+                                              is-invalid
+                                            @enderror"
+                                            id="nis" name="nis" placeholder="NIP : ........." required
+                                            value="{{ old('nis') }}">
+                                        @error('nis')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="nama_lengkap">Nama Lengkap</label>
@@ -193,8 +208,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <input type="hidden" class="form-control" name="role" value="alumni">
-                                    <a href="{{ url('/alumni') }}" class="btn btn-secondary">Batal</a>
+                                    <input type="hidden" class="form-control" name="role" value="pendidik">
+                                    <a href="{{ url('/pendidik') }}" class="btn btn-secondary">Batal</a>
                                     {{-- <button type="button"  data-dismiss="modal">Batal</button> --}}
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </form>

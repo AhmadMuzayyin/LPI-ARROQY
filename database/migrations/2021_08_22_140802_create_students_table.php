@@ -15,10 +15,10 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('nis');
-            $table->string('nama');
-            $table->string('username')->unique();
-            $table->string('password');
+            $table->string('role');
+            $table->string('nis')->unique()->nullable();
+            $table->string('nama_panjang');
+            $table->string('nama_panggilan');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->text('alamat');
@@ -26,8 +26,8 @@ class CreateStudentsTable extends Migration
             $table->string('pekerjaan_ayah');
             $table->string('nama_ibu');
             $table->string('pekerjaan_ibu');
-            $table->string('nohp');
-            $table->date('tahun_masuk');
+            $table->string('nohp')->nullable();
+            $table->date('tahun_masuk')->nullable();
             $table->date('tahun_keluar')->nullable();
             $table->string('jabatan')->nullable();
             $table->timestamps();

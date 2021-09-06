@@ -39,8 +39,21 @@ Route::get('/pendidik', [UserController::class, 'pendidik'])->middleware('auth')
 
 // Alumni
 Route::get('/alumni', [UserController::class, 'alumni'])->middleware('auth');
+Route::get('/alumni/add', [UserController::class, 'add_alumni'])->middleware('auth');
+Route::post('/alumni', [UserController::class, 'store_alumni'])->middleware('auth');
+Route::get('/alumni/edit/{student:nama_panggilan}', [UserController::class, 'edit_alumni'])->middleware('auth');
+Route::post('/alumni/edit/{student:nama_panggilan}', [UserController::class, 'update_alumni'])->middleware('auth');
 
-Route::get('/users/{id}', function ($id) {
-  $post = \App\Models\User::with('user.roles')->find($id);
-  return response()->json($post, 200);
-});
+// pendidik
+Route::get('/pendidik', [UserController::class, 'pendidik'])->middleware('auth');
+Route::get('/pendidik/add', [UserController::class, 'add_pendidik'])->middleware('auth');
+Route::post('/pendidik', [UserController::class, 'store_pendidik'])->middleware('auth');
+Route::get('/pendidik/edit/{student:nama_panggilan}', [UserController::class, 'edit_pendidik'])->middleware('auth');
+Route::post('/pendidik/edit/{student:nama_panggilan}', [UserController::class, 'update_pendidik'])->middleware('auth');
+
+// pendidik
+Route::get('/santri', [UserController::class, 'santri'])->middleware('auth');
+Route::get('/santri/add', [UserController::class, 'add_santri'])->middleware('auth');
+Route::post('/santri', [UserController::class, 'store_santri'])->middleware('auth');
+Route::get('/santri/edit/{student:nama_panggilan}', [UserController::class, 'edit_santri'])->middleware('auth');
+Route::post('/santri/edit/{student:nama_panggilan}', [UserController::class, 'update_santri'])->middleware('auth');

@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Models\Profil;
-use App\Models\Role;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,14 +23,15 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'username' => 'admin',
+            'is_admin' => '1',
             'email' => 'admin@lpi-arroqy.com',
             'password' => bcrypt('password'),
             'email_verified_at' => now()
         ]);
         User::create([
             'name' => 'Pendidik',
-            // 'roles_id' => '2',
             'username' => 'pendidik',
+            'is_admin' => '2',
             'email' => 'pendidik@lpi-arroqy.com',
             'password' => bcrypt('password'),
             'email_verified_at' => now()
@@ -37,51 +39,11 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Alumni',
             'username' => 'alumni',
+            'is_admin' => '4',
             'email' => 'alumni@lpi-arroqy.com',
             'password' => bcrypt('password'),
             'email_verified_at' => now()
         ]);
-
-        // role for user
-        Role::create([
-            'name' => 'Belum dikonfirmasi!'
-        ]);
-        Role::create([
-            'name' => 'Administrator'
-        ]);
-        Role::create([
-            'name' => 'Pendidik'
-        ]);
-        Role::create([
-            'name' => 'Santri'
-        ]);
-        Role::create([
-            'name' => 'Alumni'
-        ]);
-        // UserRole::create([
-        //     'user_id' => '1',
-        //     'roles_id' => '3'
-        // ]);
-        // UserRole::create([
-        //     'user_id' => '1',
-        //     'roles_id' => '2'
-        // ]);
-        // Roles::create([
-        //     'users_id' => '1',
-        //     'role' => '1'
-        // ]);
-        // Roles::create([
-        //     'users_id' => '1',
-        //     'role' => '2'
-        // ]);
-        // Roles::create([
-        //     'users_id' => '1',
-        //     'role' => '4'
-        // ]);
-        // Roles::create([
-        //     'users_id' => '2',
-        //     'role' => '2'
-        // ]);
 
         // create default profil
         Profil::create([

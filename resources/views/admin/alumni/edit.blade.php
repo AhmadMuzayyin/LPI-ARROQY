@@ -23,7 +23,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <form action="{{ url('alumni') }}" method="post">
+                                <form action="{{ url('/alumni/edit') . '/' . $alumni->nama_panggilan }}" method="post">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
@@ -33,7 +33,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="nama_panjang" name="nama_panjang" placeholder="Nama Lengkap" required
-                                                autofocus value="{{ old('nama_panjang') }}">
+                                                autofocus value="{{ $alumni->nama_panjang }}">
                                             @error('nama_panjang')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -47,7 +47,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="nama_panggilan" name="nama_panggilan" placeholder="Nama Panggilan"
-                                                required value="{{ old('nama_panggilan') }}">
+                                                required value="{{ $alumni->nama_panggilan }}">
                                             @error('nama_panggilan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -64,7 +64,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="tahun_masuk" name="tahun_masuk" placeholder="Tahun Masuk" required
-                                                value="{{ old('tahun_masuk') }}">
+                                                value="{{ $alumni->tahun_masuk }}">
                                             @error('tahun_masuk')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -78,7 +78,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="tahun_keluar" name="tahun_keluar" required
-                                                value="{{ old('tahun_keluar') }}">
+                                                value="{{ $alumni->tahun_keluar }}">
                                             @error('tahun_keluar')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -95,7 +95,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="tempat" name="tempat_lahir" placeholder="Tempat Lahir"
-                                                value="{{ old('tempat_lahir') }}">
+                                                value="{{ $alumni->tempat_lahir }}">
                                             @error('tempat_lahir')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -109,7 +109,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="tgl" name="tanggal_lahir" required
-                                                value="{{ old('tanggal_lahir') }}">
+                                                value="{{ $alumni->tanggal_lahir }}">
                                             @error('tanggal_lahir')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -125,7 +125,7 @@
                                               is-invalid
                                             @enderror"
                                             id="alamat" name="alamat" placeholder="Alamat Lengkap" required
-                                            value="{{ old('alamat') }}">
+                                            value="{{ $alumni->alamat }}">
                                         @error('alamat')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -141,7 +141,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="NamaAyah" name="nama_ayah" placeholder="Nama Ayah" required
-                                                value="{{ old('ayah') }}">
+                                                value="{{ $alumni->nama_ayah }}">
                                             @error('nama_ayah')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -155,7 +155,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="PekerjaanAyah" name="pekerjaan_ayah" placeholder="Pekerjaan Ayah"
-                                                required value="{{ old('pekerjaan_ayah') }}">
+                                                required value="{{ $alumni->pekerjaan_ayah }}">
                                             @error('pekerjaan_ayah')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -171,7 +171,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="NamaIbu" name="nama_ibu" placeholder="Nama Ibu" required
-                                                value="{{ old('ibu') }}">
+                                                value="{{ $alumni->nama_ibu }}">
                                             @error('nama_ibu')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -185,7 +185,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="PekerjaanIbu" name="pekerjaan_ibu" placeholder="Pekerjaan Ibu" required
-                                                value="{{ old('pekerjaan_ibu') }}">
+                                                value="{{ $alumni->pekerjaan_ibu }}">
                                             @error('pekerjaan_ibu')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -193,7 +193,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <input type="hidden" class="form-control" name="role" value="alumni">
+                                    <input type="hidden" class="form-control" name="role" value="{{ $alumni->role }}">
                                     <a href="{{ url('/alumni') }}" class="btn btn-secondary">Batal</a>
                                     {{-- <button type="button"  data-dismiss="modal">Batal</button> --}}
                                     <button type="submit" class="btn btn-primary">Simpan</button>

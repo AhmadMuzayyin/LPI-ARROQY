@@ -23,8 +23,23 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <form action="{{ url('alumni') }}" method="post">
+                                <form action="{{ url('santri') }}" method="post">
                                     @csrf
+                                    <div class="form-group">
+                                        <label for="nis">NIS</label>
+                                        <input type="text"
+                                            class="form-control @error('nis')
+                                              is-invalid
+                                            @enderror"
+                                            id="nis" name="nis" placeholder="NIS : ........." required autofocus
+                                            value="{{ old('nis') }}">
+                                        @error('nis')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="nama_lengkap">Nama Lengkap</label>
@@ -33,7 +48,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="nama_panjang" name="nama_panjang" placeholder="Nama Lengkap" required
-                                                autofocus value="{{ old('nama_panjang') }}">
+                                                value="{{ old('nama_panjang') }}">
                                             @error('nama_panjang')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -193,8 +208,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <input type="hidden" class="form-control" name="role" value="alumni">
-                                    <a href="{{ url('/alumni') }}" class="btn btn-secondary">Batal</a>
+                                    <input type="hidden" class="form-control" name="role" value="santri">
+                                    <a href="{{ url('/santri') }}" class="btn btn-secondary">Batal</a>
                                     {{-- <button type="button"  data-dismiss="modal">Batal</button> --}}
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </form>
