@@ -23,17 +23,17 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <form action="{{ url('santri') }}" method="post">
+                                <form action="{{ url('siswa') }}" method="post">
                                     @csrf
                                     <div class="form-group">
                                         <label for="nis">NIS</label>
-                                        <input type="text"
+                                        <input type="number"
                                             class="form-control @error('nis')
                                               is-invalid
                                             @enderror"
-                                            id="nis" name="nis" placeholder="NIS : ........." required autofocus
-                                            value="{{ old('nis') }}">
-                                        @error('nis')
+                                            id="nis" name="nisn" placeholder="NISN" required autofocus
+                                            value="{{ old('nisn') }}">
+                                        @error('nisn')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -44,26 +44,26 @@
                                         <div class="form-group col-md-6">
                                             <label for="nama_lengkap">Nama Lengkap</label>
                                             <input type="text"
-                                                class="form-control @error('nama_panjang')
+                                                class="form-control @error('fullname')
                                               is-invalid
                                             @enderror"
-                                                id="nama_panjang" name="nama_panjang" placeholder="Nama Lengkap" required
-                                                value="{{ old('nama_panjang') }}">
-                                            @error('nama_panjang')
+                                                id="fullname" name="fullname" placeholder="Nama Lengkap" required
+                                                value="{{ old('fullname') }}">
+                                            @error('fullname')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="nama_panggilan">Nama Panggilan</label>
+                                            <label for="nickname">Nama Panggilan</label>
                                             <input type="text"
-                                                class="form-control @error('nama_panggilan')
+                                                class="form-control @error('nickname')
                                               is-invalid
                                             @enderror"
-                                                id="nama_panggilan" name="nama_panggilan" placeholder="Nama Panggilan"
-                                                required value="{{ old('nama_panggilan') }}">
-                                            @error('nama_panggilan')
+                                                id="nickname" name="nickname" placeholder="Nama Panggilan" required
+                                                value="{{ old('nickname') }}">
+                                            @error('nickname')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -208,7 +208,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <input type="hidden" class="form-control" name="role" value="santri">
+                                    {{-- <input type="hidden" class="form-control" name="role" value="5"> --}}
                                     <a href="{{ url('/santri') }}" class="btn btn-secondary">Batal</a>
                                     {{-- <button type="button"  data-dismiss="modal">Batal</button> --}}
                                     <button type="submit" class="btn btn-primary">Simpan</button>

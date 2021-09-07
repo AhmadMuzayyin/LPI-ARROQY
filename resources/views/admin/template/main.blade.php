@@ -19,6 +19,21 @@
     <link rel="stylesheet" href="{{ url('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('/dist/css/adminlte.min.css') }}">
+
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+            margin: 0;
+        }
+
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -221,11 +236,11 @@
                                 with font-awesome or any other icon font library -->
                             <li class="nav-header">DATA MASTER</li>
                             <li class="nav-item">
-                                <a href="{{ url('/santri') }}"
-                                    class="nav-link {{ Request::is('santri') ? 'active' : '' }}">
+                                <a href="{{ url('/siswa') }}"
+                                    class="nav-link {{ Request::is('siswa') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
-                                        Santri
+                                        Siswa
                                     </p>
                                 </a>
                             </li>

@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Data Santri</li>
+                            <li class="breadcrumb-item active">Data Siswa</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Data Santri</h5>
+                                <h5 class="card-title">Data Siswa</h5>
                                 {{-- <div class="card-tools float-sm-right"></div> --}}
 
                             </div>
@@ -36,14 +36,14 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-2" style="margin-bottom: 2%">
-                                        <a href="{{ url('/santri/add') }}" type="button"
+                                        <a href="{{ url('/siswa/add') }}" type="button"
                                             class="btn btn-block bg-gradient-info btn-sm m-0"><i
                                                 class="nav-icon fas fa-user-plus"></i>Tambah
-                                            Santri</a>
+                                            Siswa</a>
                                     </div>
                                 </div>
-                                <div class="table-responsive">
-                                    <table id="tableSantri" class="table table-bordered table-hover">
+                                <div class="table-responsive text-center">
+                                    <table id="tableSiswa" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -54,10 +54,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($santri as $data)
+                                            @foreach ($siswa as $data)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $data->nama_panjang }}</td>
+                                                    <td>{{ $data->user->fullname }}</td>
                                                     <td>{{ $data->tempat_lahir . ', ' . $data->tanggal_lahir }}</td>
                                                     <td>{{ $data->alamat }}</td>
                                                     <td>
@@ -68,7 +68,7 @@
                                                                 data-id="{{ $data->id }}">
                                                                 <i class="fas fa-eye"></i>
                                                             </button>
-                                                            <a href="{{ url('/santri/edit') . '/' . $data->nama_panggilan }}"
+                                                            <a href="{{ url('/siswa/edit') . '/' . $data->user->nickname }}"
                                                                 class="btn btn-primary">
                                                                 <i class="fas fa-user-edit"></i>
                                                             </a>
@@ -123,7 +123,7 @@
 @push('after-script')
     <script>
         $(document).ready(function() {
-            $('#tableSantri').DataTable();
+            $('#tableSiswa').DataTable();
         });
 
         $(document).ready(function() {

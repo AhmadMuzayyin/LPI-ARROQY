@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Profil;
+use App\Models\UserDetail;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -57,8 +58,8 @@ class DatabaseSeeder extends Seeder
             'profil_photo' => 'profil.jpg'
         ]);
         User::create([
-            'fullname' => 'Santri',
-            'nickname' => 'santri',
+            'fullname' => 'Siswa',
+            'nickname' => 'siswa',
             'role' => '5',
             'email' => 'santri@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
@@ -73,6 +74,19 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
             'profil_photo' => 'profil.jpg'
+        ]);
+
+        UserDetail::create([
+            'user_id' => 5,
+            'nisn' => 123456789,
+            'tempat_lahir' => 'Sumenep',
+            'tanggal_lahir' => now(),
+            'alamat' => 'Gadu Barat Ganding Sumenep',
+            'nama_ayah' => 'fulan',
+            'pekerjaan_ayah' => 'Petani',
+            'nama_ibu' => 'fulanah',
+            'kelas_id' => 1,
+            'tahun_masuk' => now()
         ]);
 
         // create default profil

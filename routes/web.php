@@ -52,8 +52,8 @@ Route::get('/pendidik/edit/{student:nama_panggilan}', [UserController::class, 'e
 Route::post('/pendidik/edit/{student:nama_panggilan}', [UserController::class, 'update_pendidik'])->middleware('auth');
 
 // pendidik
-Route::get('/santri', [UserController::class, 'santri'])->middleware('auth');
-Route::get('/santri/add', [UserController::class, 'add_santri'])->middleware('auth');
-Route::post('/santri', [UserController::class, 'store_santri'])->middleware('auth');
-Route::get('/santri/edit/{student:nama_panggilan}', [UserController::class, 'edit_santri'])->middleware('auth');
-Route::post('/santri/edit/{student:nama_panggilan}', [UserController::class, 'update_santri'])->middleware('auth');
+Route::get('/siswa', [UserController::class, 'siswa'])->middleware('auth');
+Route::get('/siswa/add', [UserController::class, 'add_siswa'])->middleware('auth');
+Route::post('/siswa', [UserController::class, 'store_siswa'])->middleware('auth');
+Route::get('/siswa/edit/{student:nama_panggilan}', [UserController::class, 'edit_siswa'])->middleware('auth');
+Route::post('/siswa/edit/{student:nama_panggilan}', [UserController::class, 'update_siswa'])->middleware('auth');

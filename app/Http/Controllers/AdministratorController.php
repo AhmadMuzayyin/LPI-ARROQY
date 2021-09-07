@@ -18,7 +18,7 @@ class AdministratorController extends Controller
         return view('admin.config.adm', [
             'title' => 'Administrator',
             'active' => 'user',
-            'user' => User::all()
+            'user' => User::where('role', '!=', 5)->get()
         ]);
     }
 
