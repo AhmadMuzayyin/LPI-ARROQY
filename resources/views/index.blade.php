@@ -13,11 +13,16 @@
 
         <div class="hero-slider swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/1.jpg') }});"></div>
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/2.jpg') }});"></div>
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/3.jpg') }});"></div>
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/4.jpg') }});"></div>
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/5.jpg') }});"></div>
+                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/1.jpg') }});">
+                </div>
+                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/2.jpg') }});">
+                </div>
+                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/3.jpg') }});">
+                </div>
+                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/4.jpg') }});">
+                </div>
+                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/5.jpg') }});">
+                </div>
             </div>
         </div>
 
@@ -295,7 +300,8 @@
                 <div class="row">
                     <div class="col-lg-9 text-center text-lg-start">
                         <h3 class="cta-title">IKLAN LEWAT</h3>
-                        <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu
                             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                             deserunt mollit anim id est laborum.</p>
                     </div>
@@ -338,7 +344,7 @@
                         <div class="contact-email">
                             <i class="bi bi-envelope"></i>
                             <h3>Email</h3>
-                            <p><a href="mailto:lpi-arroqy@gmail.com">lpi-arroqy@gmail.com</a></p>
+                            <p><a href="mailto:lpi-arroqy@gmail.ac.id">lpi-arroqy@gmail.ac.id</a></p>
                         </div>
                     </div>
 

@@ -25,30 +25,32 @@
                             <div class="card-body">
                                 <form action="{{ url('alumni') }}" method="post">
                                     @csrf
+
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="nama_lengkap">Nama Lengkap</label>
+                                            <label for="fullname">Nama Lengkap</label>
                                             <input type="text"
-                                                class="form-control @error('nama_panjang')
+                                                class="form-control @error('fullname')
                                               is-invalid
                                             @enderror"
-                                                id="nama_panjang" name="nama_panjang" placeholder="Nama Lengkap" required
-                                                autofocus value="{{ old('nama_panjang') }}">
-                                            @error('nama_panjang')
+                                                id="fullname" name="fullname" placeholder="Nama Lengkap" required
+                                                value="{{ old('fullname') }}" autofocus>
+                                            @error('fullname')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                             @enderror
                                         </div>
+
                                         <div class="form-group col-md-6">
-                                            <label for="nama_panggilan">Nama Panggilan</label>
+                                            <label for="nickname">Nama Panggilan</label>
                                             <input type="text"
-                                                class="form-control @error('nama_panggilan')
+                                                class="form-control @error('nickname')
                                               is-invalid
                                             @enderror"
-                                                id="nama_panggilan" name="nama_panggilan" placeholder="Nama Panggilan"
-                                                required value="{{ old('nama_panggilan') }}">
-                                            @error('nama_panggilan')
+                                                id="nickname" name="nickname" placeholder="Nama Panggilan" required
+                                                value="{{ old('nickname') }}">
+                                            @error('nickname')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -56,35 +58,19 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="tahun_masuk">Tahun Masuk</label>
-                                            <input type="date"
-                                                class="form-control @error('tahun_masuk')
+                                    <div class="form-group">
+                                        <label for="alamat">Alamat Lengkap</label>
+                                        <input type="text"
+                                            class="form-control @error('alamat')
                                               is-invalid
                                             @enderror"
-                                                id="tahun_masuk" name="tahun_masuk" placeholder="Tahun Masuk" required
-                                                value="{{ old('tahun_masuk') }}">
-                                            @error('tahun_masuk')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="tahun_keluar">Tahun Keluar</label>
-                                            <input type="date"
-                                                class="form-control @error('tahun_keluar')
-                                              is-invalid
-                                            @enderror"
-                                                id="tahun_keluar" name="tahun_keluar" required
-                                                value="{{ old('tahun_keluar') }}">
-                                            @error('tahun_keluar')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
+                                            id="alamat" name="alamat" placeholder="Alamat Lengkap" required
+                                            value="{{ old('alamat') }}">
+                                        @error('alamat')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-row">
@@ -118,21 +104,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="alamat">Alamat</label>
-                                        <input type="text"
-                                            class="form-control @error('alamat')
-                                              is-invalid
-                                            @enderror"
-                                            id="alamat" name="alamat" placeholder="Alamat Lengkap" required
-                                            value="{{ old('alamat') }}">
-                                        @error('alamat')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="NamaAyah">Nama Ayah</label>
@@ -141,7 +112,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="NamaAyah" name="nama_ayah" placeholder="Nama Ayah" required
-                                                value="{{ old('ayah') }}">
+                                                value="{{ old('nama_ayah') }}">
                                             @error('nama_ayah')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -171,7 +142,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="NamaIbu" name="nama_ibu" placeholder="Nama Ibu" required
-                                                value="{{ old('ibu') }}">
+                                                value="{{ old('nama_ibu') }}">
                                             @error('nama_ibu')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -193,7 +164,37 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <input type="hidden" class="form-control" name="role" value="alumni">
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="tahun_masuk">Tahun Masuk</label>
+                                            <input type="date"
+                                                class="form-control @error('tahun_masuk')
+                                              is-invalid
+                                            @enderror"
+                                                id="tahun_masuk" name="tahun_masuk" required
+                                                value="{{ old('tahun_masuk') }}">
+                                            @error('tahun_masuk')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="tahun_keluar">Tahun Keluar</label>
+                                            <input type="date"
+                                                class="form-control @error('tahun_keluar')
+                                              is-invalid
+                                            @enderror"
+                                                id="tahun_keluar" name="tahun_keluar" required
+                                                value="{{ old('tahun_keluar') }}">
+                                            @error('tahun_keluar')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <a href="{{ url('/alumni') }}" class="btn btn-secondary">Batal</a>
                                     {{-- <button type="button"  data-dismiss="modal">Batal</button> --}}
                                     <button type="submit" class="btn btn-primary">Simpan</button>

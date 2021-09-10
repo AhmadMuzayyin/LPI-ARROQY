@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Data Pendidik</li>
+                            <li class="breadcrumb-item active">Data Alumni</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="card-title">Data Pendidik</h5>
+                                <h5 class="card-title">Data Siswa</h5>
                                 {{-- <div class="card-tools float-sm-right"></div> --}}
 
                             </div>
@@ -57,25 +57,30 @@
                                             @foreach ($pendidik as $data)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $data->nama_panjang }}</td>
-                                                    <td>{{ $data->tempat_lahir . ', ' . $data->tanggal_lahir }}</td>
-                                                    <td>{{ $data->alamat }}</td>
+                                                    <td>{{ $data->fullname }}</td>
+                                                    <td>{{ $data->user_detail->tempat_lahir . ', ' . $data->user_detail->tanggal_lahir }}
+                                                    </td>
+                                                    <td>{{ $data->user_detail->alamat }}</td>
                                                     <td>
-                                                        <div class="btn-group btn-group-sm" role="group"
-                                                            aria-label="Basic example">
-                                                            <button type="button" id="DetailAlumni"
-                                                                class="btn btn-success DetailAlumni"
-                                                                data-id="{{ $data->id }}">
-                                                                <i class="fas fa-eye"></i>
-                                                            </button>
-                                                            <a href="{{ url('/pendidik/edit') . '/' . $data->nama_panggilan }}"
-                                                                class="btn btn-primary">
-                                                                <i class="fas fa-user-edit"></i>
-                                                            </a>
-                                                            <button type="button" class="btn btn-danger">
-                                                                <i class="fas fa-trash"></i>
-                                                            </button>
-                                                        </div>
+                                                        <form action="{{ url('/pendidik') . '/' . $data->nickname }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <div class="btn-group btn-group-sm" role="group"
+                                                                aria-label="Basic example">
+                                                                <a href="{{ url('/pendidik') . '/' . $data->nickname }}"
+                                                                    class="btn btn-success">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
+                                                                <a href="{{ url('/pendidik/edit') . '/' . $data->nickname }}"
+                                                                    class="btn btn-primary">
+                                                                    <i class="fas fa-user-edit"></i>
+                                                                </a>
+                                                                <button class="btn btn-danger"
+                                                                    onclick="return confirm('Yakin ingin menghapus data?')">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -95,45 +100,12 @@
         <!-- /.content -->
     </div>
 
-    {{-- Modal Edit --}}
-    <div class="modal fade" id="alumnimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Administrator</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-
-                    <h5></h5>
-                    <input type="text" value="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    {{-- End Modal --}}
 @endsection
 
 @push('after-script')
     <script>
         $(document).ready(function() {
             $('#tableSantri').DataTable();
-        });
-
-        $(document).ready(function() {
-            $('.DetailAlumni').on('click', function() {
-                let getId = $(this).data('id')
-                // console.log(getId)
-                let id = $('#user_id').val(getId)
-                $('#alumnimodal').modal('show');
-
-            });
         });
     </script>
 @endpush

@@ -189,17 +189,17 @@
                         <i class="fas fa-cog"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog mr-2"></i> Pengaturan
+                        </a>
+                        <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="dropdown-item">
                                 <i class="fas fa-sign-out-alt mr-2"></i> Keluar
                             </button>
                         </form>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-cog mr-2"></i> Pengaturan
-                        </a>
-
                     </div>
                 </li>
             </ul>
@@ -223,7 +223,7 @@
                         <img src="{{ url('/uploads/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                        <a href="#" class="d-block">{{ Auth::user()->fullname }}</a>
                     </div>
                 </div>
 
@@ -274,6 +274,15 @@
                                     <i class="nav-icon fas fa-users-cog"></i>
                                     <p>
                                         Perizinan Pengguna
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/service') }}"
+                                    class="nav-link {{ Request::is('service') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-cogs"></i>
+                                    <p>
+                                        Service Data
                                     </p>
                                 </a>
                             </li>

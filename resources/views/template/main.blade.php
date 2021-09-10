@@ -98,7 +98,6 @@
                 })), (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji),
                     c(n.wpemoji)))
         }(window, document, window._wpemojiSettings);
-
     </script>
 
 
@@ -143,16 +142,18 @@
                     {{-- Akademik --}}
                     <li class="dropdown"><a href="#"><span>Akademik</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Kurikulum</a></li>
-                            <li><a href="#">Galeri</a></li>
-                            <li class="dropdown"><a href="#"><span>PAUD</span> <i class="bi bi-chevron-right"></i></a>
+                            {{-- <li><a href="#">Kurikulum</a></li>
+                            <li><a href="#">Galeri</a></li> --}}
+                            <li class="dropdown"><a href="#"><span>PAUD</span> <i
+                                        class="bi bi-chevron-right"></i></a>
                                 <ul>
                                     <li><a href="#">Profil</a></li>
                                     <li><a href="#">Kegiatan</a></li>
                                     <li><a href="#">Kontak</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#"><span>MADIN</span> <i class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown"><a href="#"><span>MADIN</span> <i
+                                        class="bi bi-chevron-right"></i></a>
                                 <ul>
                                     <li><a href="#">Profil</a></li>
                                     <li><a href="#">Kegiatan</a></li>
@@ -166,7 +167,6 @@
                     <li class="dropdown"><a href="#"><span>Alumni</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#">Profil</a></li>
-                            <li><a href="#">Kegiatan</a></li>
                             <li><a href="#">Galeri</a></li>
                             <li class="dropdown"><a href="#"><span>Program Kerja</span> <i
                                         class="bi bi-chevron-right"></i></a>

@@ -23,32 +23,48 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <form action="{{ url('/alumni/edit') . '/' . $alumni->nama_panggilan }}" method="post">
+                                <form action="{{ url('/siswa/edit') . '/' . $siswa->nickname }}" method="post">
                                     @csrf
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="nama_lengkap">Nama Lengkap</label>
-                                            <input type="text"
-                                                class="form-control @error('nama_panjang')
+                                    <div class="form-group">
+                                        <label for="nis">NIS</label>
+                                        <input type="number"
+                                            class="form-control @error('nisn')
                                               is-invalid
                                             @enderror"
-                                                id="nama_panjang" name="nama_panjang" placeholder="Nama Lengkap" required
-                                                autofocus value="{{ $alumni->nama_panjang }}">
-                                            @error('nama_panjang')
+                                            id="nis" name="nisn" placeholder="NISN" required
+                                            value="{{ $siswa->user_detail->nisn }}" readonly>
+                                        @error('nisn')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="fullname">Nama Lengkap</label>
+                                            <input type="text"
+                                                class="form-control @error('fullname')
+                                              is-invalid
+                                            @enderror"
+                                                id="fullname" name="fullname" placeholder="Nama Lengkap" required
+                                                value="{{ $siswa->fullname }}" autofocus>
+                                            @error('fullname')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                             @enderror
                                         </div>
+
                                         <div class="form-group col-md-6">
-                                            <label for="nama_panggilan">Nama Panggilan</label>
+                                            <label for="nickname">Nama Panggilan</label>
                                             <input type="text"
-                                                class="form-control @error('nama_panggilan')
+                                                class="form-control @error('nickname')
                                               is-invalid
                                             @enderror"
-                                                id="nama_panggilan" name="nama_panggilan" placeholder="Nama Panggilan"
-                                                required value="{{ $alumni->nama_panggilan }}">
-                                            @error('nama_panggilan')
+                                                id="nickname" name="nickname" placeholder="Nama Panggilan" required
+                                                value="{{ $siswa->nickname }}">
+                                            @error('nickname')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -56,35 +72,19 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="tahun_masuk">Tahun Masuk</label>
-                                            <input type="date"
-                                                class="form-control @error('tahun_masuk')
+                                    <div class="form-group">
+                                        <label for="alamat">Alamat Lengkap</label>
+                                        <input type="text"
+                                            class="form-control @error('alamat')
                                               is-invalid
                                             @enderror"
-                                                id="tahun_masuk" name="tahun_masuk" placeholder="Tahun Masuk" required
-                                                value="{{ $alumni->tahun_masuk }}">
-                                            @error('tahun_masuk')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="tahun_keluar">Tahun Keluar</label>
-                                            <input type="date"
-                                                class="form-control @error('tahun_keluar')
-                                              is-invalid
-                                            @enderror"
-                                                id="tahun_keluar" name="tahun_keluar" required
-                                                value="{{ $alumni->tahun_keluar }}">
-                                            @error('tahun_keluar')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
+                                            id="alamat" name="alamat" placeholder="Alamat Lengkap" required
+                                            value="{{ $siswa->user_detail->alamat }}">
+                                        @error('alamat')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-row">
@@ -95,7 +95,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="tempat" name="tempat_lahir" placeholder="Tempat Lahir"
-                                                value="{{ $alumni->tempat_lahir }}">
+                                                value="{{ $siswa->user_detail->tempat_lahir }}">
                                             @error('tempat_lahir')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -109,28 +109,13 @@
                                               is-invalid
                                             @enderror"
                                                 id="tgl" name="tanggal_lahir" required
-                                                value="{{ $alumni->tanggal_lahir }}">
+                                                value="{{ $siswa->user_detail->tanggal_lahir }}">
                                             @error('tanggal_lahir')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                             @enderror
                                         </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="alamat">Alamat</label>
-                                        <input type="text"
-                                            class="form-control @error('alamat')
-                                              is-invalid
-                                            @enderror"
-                                            id="alamat" name="alamat" placeholder="Alamat Lengkap" required
-                                            value="{{ $alumni->alamat }}">
-                                        @error('alamat')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
                                     </div>
 
                                     <div class="form-row">
@@ -141,7 +126,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="NamaAyah" name="nama_ayah" placeholder="Nama Ayah" required
-                                                value="{{ $alumni->nama_ayah }}">
+                                                value="{{ $siswa->user_detail->nama_ayah }}">
                                             @error('nama_ayah')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -155,7 +140,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="PekerjaanAyah" name="pekerjaan_ayah" placeholder="Pekerjaan Ayah"
-                                                required value="{{ $alumni->pekerjaan_ayah }}">
+                                                required value="{{ $siswa->user_detail->pekerjaan_ayah }}">
                                             @error('pekerjaan_ayah')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -171,7 +156,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="NamaIbu" name="nama_ibu" placeholder="Nama Ibu" required
-                                                value="{{ $alumni->nama_ibu }}">
+                                                value="{{ $siswa->user_detail->nama_ibu }}">
                                             @error('nama_ibu')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -185,7 +170,7 @@
                                               is-invalid
                                             @enderror"
                                                 id="PekerjaanIbu" name="pekerjaan_ibu" placeholder="Pekerjaan Ibu" required
-                                                value="{{ $alumni->pekerjaan_ibu }}">
+                                                value="{{ $siswa->user_detail->pekerjaan_ibu }}">
                                             @error('pekerjaan_ibu')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -193,8 +178,43 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <input type="hidden" class="form-control" name="role" value="{{ $alumni->role }}">
-                                    <a href="{{ url('/santri') }}" class="btn btn-secondary">Batal</a>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="tahun_masuk">Tahun Masuk</label>
+                                            <input type="date"
+                                                class="form-control @error('tahun_masuk')
+                                              is-invalid
+                                            @enderror"
+                                                id="tahun_masuk" name="tahun_masuk" placeholder="Tahun Masuk" required
+                                                value="{{ $siswa->user_detail->tahun_masuk }}">
+                                            @error('tahun_masuk')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="kelas">Kelas</label>
+                                            <select
+                                                class="custom-select @error('kelas_id')
+                                              is-invalid
+                                            @enderror"
+                                                id="kelas" name="kelas_id">
+                                                <option selected>kelas Anda {{ $siswa->user_detail->kelas->name }}
+                                                </option>
+                                                @foreach ($kelas as $k)
+                                                    <option value="{{ $k->id }}">{{ $k->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('kelas_id')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <a href="{{ url('/siswa') }}" class="btn btn-secondary">Batal</a>
                                     {{-- <button type="button"  data-dismiss="modal">Batal</button> --}}
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </form>

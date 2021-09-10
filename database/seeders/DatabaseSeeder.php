@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
-            'profil_photo' => 'profil.jpg'
+            'profil_photo' => 'Profil.jpg'
         ]);
         User::create([
             'fullname' => 'Admin E-Learning',
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin.e-learning@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
-            'profil_photo' => 'profil.jpg'
+            'profil_photo' => 'Profil.jpg'
         ]);
         User::create([
             'fullname' => 'Admin Perpustakaan',
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin.perpus@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
-            'profil_photo' => 'profil.jpg'
+            'profil_photo' => 'Profil.jpg'
         ]);
         User::create([
             'fullname' => 'Pendidik',
@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'pendidik@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
-            'profil_photo' => 'profil.jpg'
+            'profil_photo' => 'Profil.jpg'
         ]);
         User::create([
             'fullname' => 'Siswa',
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'santri@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
-            'profil_photo' => 'profil.jpg'
+            'profil_photo' => 'Profil.jpg'
         ]);
         User::create([
             'fullname' => 'Alumni',
@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'alumni@lpi-arroqy.ac.id',
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
-            'profil_photo' => 'profil.jpg'
+            'profil_photo' => 'Profil.jpg'
         ]);
 
         UserDetail::create([
@@ -85,6 +85,7 @@ class DatabaseSeeder extends Seeder
             'nama_ayah' => 'fulan',
             'pekerjaan_ayah' => 'Petani',
             'nama_ibu' => 'fulanah',
+            'pekerjaan_ibu' => 'Petani',
             'kelas_id' => 1,
             'tahun_masuk' => now()
         ]);
