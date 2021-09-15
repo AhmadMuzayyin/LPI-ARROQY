@@ -128,7 +128,9 @@
         <div class="container d-flex justify-content-between">
 
             <div id="logo">
-                <h1><a href="{{ url('/') }}">LPI-<span>ARROQY</span></a></h1>
+                <h1><a href="{{ url('/') }}" style="color: #046EA2"><span
+                            style="color:#046EA2">LPI-ARROQY</span></a>
+                </h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="uploads/logo.png" alt=""></a>-->
             </div>
@@ -201,18 +203,26 @@
     @yield('content')
     {{-- End Content --}}
 
+    <div class="mb-0 mb-sm-auto">
+        <svg xmlns=" http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,288L48,282.7C96,277,192,267,288,272C384,277,480,299,576,282.7C672,267,768,213,864,202.7C960,192,1056,224,1152,234.7C1248,245,1344,235,1392,229.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+
     <!-- ======= Footer ======= -->
-    <footer id="footer">
+    <div id="footer" class="jumbotron jumbotron-fluid">
         <div class="container">
             <div class="copyright">
                 &copy; Copyright
-                <strong><a href="{{ url('/') }}">LPI - ARROQY</a>.</strong> All Rights Reserved
-            </div>
-            <div class="credits">
-                {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> --}}
+                <strong><a href="{{ url('/') }}" style="color: white">LPI -
+                        ARROQY</a>.</strong> All
+                Rights Reserved
             </div>
         </div>
-    </footer><!-- End Footer -->
+    </div>
+    <!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>

@@ -190,6 +190,10 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
+                        <a href="#" class="dropdown-item"><img src="{{ url('/uploads/user1-128x128.jpg') }}"
+                                class="img-size-50 mr-3 img-circle" alt="User Image">
+                            {{ Auth::user()->fullname }}</a>
+                        <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
                             <i class="fas fa-cog mr-2"></i> Pengaturan
                         </a>
@@ -218,14 +222,6 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="{{ url('/uploads/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->fullname }}</a>
-                    </div>
-                </div>
 
                 <!-- Sidebar Menu -->
                 @if (Auth()->user()->role == 1)

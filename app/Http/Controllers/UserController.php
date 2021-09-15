@@ -161,7 +161,7 @@ class UserController extends Controller
         $validasi = $request->validate([
             'nip' => 'required|max:10',
             'fullname' => 'required|max:50',
-            'nickname' => 'required|unique:users|max:10',
+            'nickname' => 'required|unique:users|max:10|required:string',
             'alamat' => 'required|max:255',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -185,7 +185,7 @@ class UserController extends Controller
 
         UserDetail::create([
             'user_id' => $user->id,
-            'nisn' => $request->nisn,
+            'nip' => $request->nip,
             'tahun_masuk' => $request->tahun_masuk,
             'tahun_keluar' => $request->tahun_keluar,
             'tempat_lahir' => $request->tempat_lahir,

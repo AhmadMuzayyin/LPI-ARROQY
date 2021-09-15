@@ -23,7 +23,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <form action="{{ url('/alumni/edit') . '/' . $alumni->nickname }}" method=" post">
+                                <form action="{{ url('/alumni/edit') . '/' . $alumni->nickname }}" method="POST">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-6">

@@ -31,8 +31,8 @@
                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Santri</span>
-                                <span class="info-box-number">{{ $user->where('role', 3)->count() }}</span>
+                                <span class="info-box-text">Siswa</span>
+                                <span class="info-box-number">{{ $user->where('role', 5)->count() }}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -45,8 +45,8 @@
                                     class="fas fa-chalkboard-teacher"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Guru</span>
-                                <span class="info-box-number">{{ $user->where('role', 2)->count() }}</span>
+                                <span class="info-box-text">Pendidik</span>
+                                <span class="info-box-number">{{ $user->where('role', 4)->count() }}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -61,7 +61,7 @@
 
                             <div class="info-box-content">
                                 <span class="info-box-text">Alumni</span>
-                                <span class="info-box-number">{{ $user->where('role', 4)->count() }}</span>
+                                <span class="info-box-number">{{ $user->where('role', 6)->count() }}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -112,9 +112,9 @@
                                 <h1>
 
                                     @if (Auth()->user()->role == 1)
-                                        Selamat Datang {{ Auth::user()->name }}
+                                        Selamat Datang {{ Auth::user()->fullname }}
                                     @elseif (Auth()->user()->role == 2)
-                                        Selamat Datang {{ Auth::user()->name }}
+                                        Selamat Datang {{ Auth::user()->fullname }}
                                     @elseif (Auth()->user()->role == NULL)
                                         Silahkan Hubungi Administrator!
                                     @endif
