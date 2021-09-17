@@ -48,47 +48,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'profil_photo' => 'Profil.jpg'
         ]);
-        User::create([
-            'fullname' => 'Pendidik',
-            'nickname' => 'pendidik',
-            'role' => '4',
-            'email' => 'pendidik@lpi-arroqy.ac.id',
-            'password' => bcrypt('password'),
-            'email_verified_at' => now(),
-            'profil_photo' => 'Profil.jpg'
-        ]);
-        User::create([
-            'fullname' => 'Siswa',
-            'nickname' => 'siswa',
-            'role' => '5',
-            'email' => 'santri@lpi-arroqy.ac.id',
-            'password' => bcrypt('password'),
-            'email_verified_at' => now(),
-            'profil_photo' => 'Profil.jpg'
-        ]);
-        User::create([
-            'fullname' => 'Alumni',
-            'nickname' => 'alumni',
-            'role' => '6',
-            'email' => 'alumni@lpi-arroqy.ac.id',
-            'password' => bcrypt('password'),
-            'email_verified_at' => now(),
-            'profil_photo' => 'Profil.jpg'
-        ]);
 
-        UserDetail::create([
-            'user_id' => 5,
-            'nisn' => 123456789,
-            'tempat_lahir' => 'Sumenep',
-            'tanggal_lahir' => now(),
-            'alamat' => 'Gadu Barat Ganding Sumenep',
-            'nama_ayah' => 'fulan',
-            'pekerjaan_ayah' => 'Petani',
-            'nama_ibu' => 'fulanah',
-            'pekerjaan_ibu' => 'Petani',
-            'kelas_id' => 1,
-            'tahun_masuk' => now()
-        ]);
 
         // create default profil
         Profil::create([

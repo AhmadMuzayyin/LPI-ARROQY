@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Data Alumni</li>
+                            <li class="breadcrumb-item active">Data Kelas</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -36,10 +36,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-2" style="margin-bottom: 2%">
-                                        <a href="{{ url('/siswa/add') }}" type="button"
+                                        <a href="{{ url('/kelas/add') }}" type="button"
                                             class="btn btn-block bg-gradient-info btn-sm m-0"><i
                                                 class="nav-icon fas fa-user-plus"></i>Tambah
-                                            Siswa</a>
+                                            Kelas</a>
                                     </div>
                                 </div>
                                 <div class="table-responsive">
@@ -48,31 +48,23 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Tempat/Tanggal Lahir</th>
-                                                <th>Alamat</th>
+                                                <th>Tingkatan</th>
                                                 <th><i class="fas fa-cog"></i></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($siswa as $data)
+                                            @foreach ($kelas as $data)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $data->fullname }}</td>
+                                                    <td>{{ $data->name }}</td>
+                                                    <td>{{ $data->tingkat }}</td>
                                                     <td>
-                                                        {{ $data->user_detail->tempat_lahir . ', ' . $data->user_detail->tanggal_lahir }}
-                                                    </td>
-                                                    <td>{{ $data->user_detail->alamat }}</td>
-                                                    <td>
-                                                        <form action="{{ url('/siswa') . '/' . $data->nickname }}"
+                                                        <form action="{{ url('/kelas') . '/' . $data->id }}"
                                                             method="POST">
                                                             @csrf
                                                             <div class="btn-group btn-group-sm" role="group"
                                                                 aria-label="Basic example">
-                                                                <a href="{{ url('/siswa') . '/' . $data->nickname }}"
-                                                                    class="btn btn-success">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                                <a href="{{ url('/siswa/edit') . '/' . $data->nickname }}"
+                                                                <a href="{{ url('/kelas/edit') . '/' . $data->id }}"
                                                                     class="btn btn-primary">
                                                                     <i class="fas fa-user-edit"></i>
                                                                 </a>

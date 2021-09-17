@@ -204,7 +204,7 @@
                                                 <select class="custom-select" id="kelas" name="kelas_id">
                                                     <option selected>Pilih kelas anda</option>
                                                     @foreach ($kelas as $k)
-                                                        <option value="{{ $k->id }}">{{ $k->name }}</option>
+                                                        <option value="{{ $k->id }}">Wali kelas: {{ $k->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

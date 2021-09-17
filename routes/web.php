@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ServiceController;
@@ -62,5 +63,9 @@ Route::post('/siswa/edit/{User:nickname}', [UserController::class, 'update_siswa
 Route::get('/siswa/{User:nickname}', [UserController::class, 'detail_siswa'])->middleware('auth');
 Route::post('/siswa/{User:nickname}', [UserController::class, 'destroy_siswa'])->middleware('auth');
 
+// Kelas
+Route::get('/kelas', [KelasController::class, 'index'])->middleware('auth');
+Route::get('/kelas/add', [KelasController::class, 'create'])->middleware('auth');
+Route::post('/kelas', [KelasController::class, 'store'])->middleware('auth');
 
 Route::get('/service', [ServiceController::class, 'index'])->middleware('auth');

@@ -263,6 +263,17 @@
                                 </a>
                             </li>
 
+                            {{-- Kelas --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/kelas') }}"
+                                    class="nav-link {{ Request::is('kelas') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <p>
+                                        Kelas
+                                    </p>
+                                </a>
+                            </li>
+
                             <li class="nav-header">KONFIGURASI</li>
                             <li class="nav-item">
                                 <a href="{{ url('/user') }}"
