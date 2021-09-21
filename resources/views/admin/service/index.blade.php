@@ -43,6 +43,12 @@
                                                 Import data excel
                                             </a>
                                         </div>
+                                        <div class="col-md-2">
+                                            <a href="{{ url('/service/UserExport') }}" type="button"
+                                                class="btn btn-info">
+                                                Export data excel
+                                            </a>
+                                        </div>
                                     @endif
                                 </div>
                             </div>

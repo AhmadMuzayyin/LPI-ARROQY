@@ -71,3 +71,4 @@ Route::post('/kelas/{kelas:id}', [KelasController::class, 'destroy'])->middlewar
 
 Route::get('/service', [ServiceController::class, 'index'])->middleware('auth');
 Route::post('/service', [ServiceController::class, 'UserImport'])->middleware('auth');
+Route::get('/service/UserExport', [ServiceController::class, 'UserExport'])->name('export')->middleware('auth');

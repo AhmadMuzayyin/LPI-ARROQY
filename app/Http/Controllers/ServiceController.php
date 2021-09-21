@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
+use App\Exports\UserExport;
 use App\Imports\UserImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Kelas;
+use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ServiceController extends Controller
@@ -33,6 +35,13 @@ class ServiceController extends Controller
 
         Excel::import(new UserImport, \public_path('/import/' . $namaFile));
         return redirect()->back()->with('success', 'Data berhasil di import!');
+    }
+
+    public function UserExport()
+    {
+        return Excel::download(new UserExport, 'users-' . date('m-d-Y') . '.xlsx');
+
+        return redirect()->back()->with('success', 'Data berhasil di export!');
     }
     /**
      * Show the form for creating a new resource.
