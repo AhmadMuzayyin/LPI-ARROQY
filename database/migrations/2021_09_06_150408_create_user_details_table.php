@@ -16,8 +16,6 @@ class CreateUserDetailsTable extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('nisn')->unique()->nullable();
-            $table->string('nip')->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->text('alamat')->nullable();

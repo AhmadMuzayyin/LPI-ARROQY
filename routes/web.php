@@ -70,3 +70,4 @@ Route::post('/kelas', [KelasController::class, 'store'])->middleware('auth');
 Route::post('/kelas/{kelas:id}', [KelasController::class, 'destroy'])->middleware('auth');
 
 Route::get('/service', [ServiceController::class, 'index'])->middleware('auth');
+Route::post('/service', [ServiceController::class, 'UserImport'])->middleware('auth');
