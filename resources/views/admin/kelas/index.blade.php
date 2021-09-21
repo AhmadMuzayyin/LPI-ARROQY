@@ -64,10 +64,6 @@
                                                             @csrf
                                                             <div class="btn-group btn-group-sm" role="group"
                                                                 aria-label="Basic example">
-                                                                <a href="{{ url('/kelas/edit') . '/' . $data->id }}"
-                                                                    class="btn btn-primary">
-                                                                    <i class="fas fa-user-edit"></i>
-                                                                </a>
                                                                 <button class="btn btn-danger"
                                                                     onclick="return confirm('Yakin ingin menghapus data?')">
                                                                     <i class="fas fa-trash"></i>

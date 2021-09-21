@@ -245,7 +245,7 @@
                             <li class="nav-item">
                                 <a href="{{ url('/pendidik') }}"
                                     class="nav-link {{ Request::is('pendidik') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <i class="nav-icon fas fa-user-tie"></i>
                                     <p>
                                         Pendidik
                                     </p>

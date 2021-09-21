@@ -73,7 +73,11 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($id);
+        return view('admin.kelas.edit', [
+            'title' => 'Edit Data Kelas',
+            'kelas' => Kelas::firstWhere('id', $id)
+        ]);
     }
 
     /**
@@ -96,6 +100,8 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kelas::destroy($id);
+
+        return redirect('/kelas')->with('success', 'Data berhasil dihapus!');
     }
 }

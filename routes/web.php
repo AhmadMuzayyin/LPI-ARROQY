@@ -67,5 +67,6 @@ Route::post('/siswa/{User:nickname}', [UserController::class, 'destroy_siswa'])-
 Route::get('/kelas', [KelasController::class, 'index'])->middleware('auth');
 Route::get('/kelas/add', [KelasController::class, 'create'])->middleware('auth');
 Route::post('/kelas', [KelasController::class, 'store'])->middleware('auth');
+Route::post('/kelas/{kelas:id}', [KelasController::class, 'destroy'])->middleware('auth');
 
 Route::get('/service', [ServiceController::class, 'index'])->middleware('auth');
