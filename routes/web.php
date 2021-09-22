@@ -6,8 +6,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\AdministratorController;
 
 /*
@@ -72,3 +74,9 @@ Route::post('/kelas/{kelas:id}', [KelasController::class, 'destroy'])->middlewar
 Route::get('/service', [ServiceController::class, 'index'])->middleware('auth');
 Route::post('/service', [ServiceController::class, 'UserImport'])->middleware('auth');
 Route::get('/service/UserExport', [ServiceController::class, 'UserExport'])->name('export')->middleware('auth');
+
+// galeri
+Route::get('/galeri', [GaleryController::class, 'index'])->middleware('auth');
+
+// galeri
+Route::get('/pengumuman', [PengumumanController::class, 'index'])->middleware('auth');

@@ -2,16 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Kelas;
-use App\Exports\UserExport;
-use App\Imports\UserImport;
 use Illuminate\Http\Request;
-use App\Imports\UserDetailImport;
-use App\Http\Controllers\Controller;
-use Maatwebsite\Excel\Facades\Excel;
 
-class ServiceController extends Controller
+class PengumumanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,30 +13,11 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('admin.service.index', [
-            'title' => 'Service Data Master',
-            'kelas' => Kelas::all()
+        return view('admin.berita.index', [
+            'title' => 'Pengumuman'
         ]);
     }
 
-    public function UserImport(Request $request)
-    {
-        // dd($request->UserImport);
-
-        $file = $request->file('UserImport');
-        $namaFile = $file->getClientOriginalName();
-        $file->move('import', $namaFile);
-
-        Excel::import(new UserDetailImport, \public_path('/import/' . $namaFile));
-        return redirect()->back()->with('success', 'Data berhasil di import!');
-    }
-
-    public function UserExport()
-    {
-        return Excel::download(new UserExport, 'users-' . date('m-d-Y') . '.xlsx');
-
-        return redirect()->back()->with('success', 'Data berhasil di export!');
-    }
     /**
      * Show the form for creating a new resource.
      *

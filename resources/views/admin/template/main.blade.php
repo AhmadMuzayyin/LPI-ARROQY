@@ -306,7 +306,8 @@
                             </li>
                             {{-- Profil --}}
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ url('/galeri') }}"
+                                    class="nav-link  {{ Request::is('galeri') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-images"></i>
                                     <p>
                                         Galeri
@@ -315,10 +316,11 @@
                             </li>
                             {{-- Galeri --}}
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ url('/pengumuman') }}"
+                                    class="nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-newspaper"></i>
                                     <p>
-                                        Berita
+                                        Pengumuman
                                     </p>
                                 </a>
                             </li>
@@ -332,47 +334,87 @@
                                 </a>
                             </li>
                             {{-- Akademik --}}
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-graduation-cap"></i>
-                                    <p>
-                                        Alumni
-                                    </p>
-                                </a>
-                            </li>
-                            {{-- Alumni --}}
                         </ul>
                     </nav>
-                @elseif (Auth()->user()->role == 2)
+                @elseif (Auth()->user()->role == 4)
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                                with font-awesome or any other icon font library -->
                             <li class="nav-header">DATA MASTER</li>
                             <li class="nav-item">
-                                <a href="{{ url('/santri') }}"
-                                    class="nav-link {{ Request::is('santri') ? 'active' : '' }}">
+                                <a href="{{ url('/siswa') }}"
+                                    class="nav-link {{ Request::is('siswa') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
-                                        Santri
+                                        Siswa
                                     </p>
                                 </a>
                             </li>
 
-                            <li class="nav-header">KONFIGURASI</li>
+                            {{-- Pendidik --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/pendidik') }}"
+                                    class="nav-link {{ Request::is('pendidik') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-user-tie"></i>
+                                    <p>
+                                        Pendidik
+                                    </p>
+                                </a>
+                            </li>
+
+                            {{-- Kelas --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/kelas') }}"
+                                    class="nav-link {{ Request::is('kelas') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <p>
+                                        Kelas
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-header">POSTINGAN</li>
                             <li class="nav-item">
                                 <a href="{{ url('/profil') }}"
                                     class="nav-link {{ Request::is('profil') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-id-card"></i>
                                     <p>
                                         Profil
-                                        <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
                             </li>
                             {{-- Profil --}}
-
+                            <li class="nav-item">
+                                <a href="{{ url('/galeri') }}"
+                                    class="nav-link  {{ Request::is('galeri') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-images"></i>
+                                    <p>
+                                        Galeri
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Galeri --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/pengumuman') }}"
+                                    class="nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-newspaper"></i>
+                                    <p>
+                                        Pengumuman
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Berita --}}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chalkboard"></i>
+                                    <p>
+                                        Akademik
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Akademik --}}
                         </ul>
                     </nav>
                 @elseif (Auth()->user()->role == NULL)
