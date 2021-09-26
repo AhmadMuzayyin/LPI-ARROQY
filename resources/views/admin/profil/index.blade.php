@@ -29,22 +29,20 @@
                             <div class="card-header">
                                 <h5 class=" card-title">Kelola Profil</h5>
                                 <div class="float-lg-right float-md-right float-sm-right">
-                                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
-                                        data-toggle="dropdown" aria-expanded="false">
-                                        Profils
+                                    <button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Profil
                                     </button>
-                                    @foreach ($profils as $p)
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ url('/profil/profil-lembaga') }}">Profil
-                                                Yayasan</a>
-                                            <a class="dropdown-item" href="{{ url('/profil/profil-madin') }}">Profil
-                                                MADIN</a>
-                                            <a class="dropdown-item" href="{{ url('/profil/profil-paud') }}">Profil
-                                                Paud</a>
-                                            <a class="dropdown-item" href="{{ url('/profil/profil-alumni') }}">Profil
-                                                Alumni</a>
-                                        </div>
-                                    @endforeach
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ url('/profil/profil-lembaga') }}">Profil
+                                            Yayasan</a>
+                                        <a class="dropdown-item" href="{{ url('/profil/profil-madin') }}">Profil
+                                            MADIN</a>
+                                        <a class="dropdown-item" href="{{ url('/profil/profil-paud') }}">Profil
+                                            Paud</a>
+                                        <a class="dropdown-item" href="{{ url('/profil/profil-alumni') }}">Profil
+                                            Alumni</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">

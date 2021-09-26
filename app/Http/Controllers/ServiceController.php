@@ -34,7 +34,7 @@ class ServiceController extends Controller
         $namaFile = $file->getClientOriginalName();
         $file->move('import', $namaFile);
 
-        Excel::import(new UserDetailImport, \public_path('/import/' . $namaFile));
+        Excel::import(new UserImport, \public_path('/import/' . $namaFile));
         return redirect()->back()->with('success', 'Data berhasil di import!');
     }
 

@@ -13,7 +13,7 @@ class PengumumanController extends Controller
      */
     public function index()
     {
-        return view('admin.berita.index', [
+        return view('admin.info.index', [
             'title' => 'Pengumuman'
         ]);
     }

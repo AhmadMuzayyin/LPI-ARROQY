@@ -35,7 +35,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin');
+            return redirect()->intended('/home');
         }
 
         return back()->with('loginError', 'Silahkan login kembali!');
