@@ -14,15 +14,16 @@ class UserExport implements WithMapping
      */
     public function map($user): array
     {
+        // dd($user);
         return [
             $user = User::where('role', 5)->first(),
-            $user->fullname,
-            $user->nickname,
-            $user->user_detail->tempat_lahir,
-            $user->user_detail->tahun_lahir,
-            $user->user_detail->alamat
+            // $user->fullname,
+            // $user->nickname,
+            // $user->user_detail->tempat_lahir,
+            // $user->user_detail->tahun_lahir,
+            // $user->user_detail->alamat,
         ];
-        // dd($user);
+        dd($user);
         // return UserDetail::all();
     }
 }

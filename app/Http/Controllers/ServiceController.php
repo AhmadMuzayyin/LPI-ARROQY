@@ -28,13 +28,11 @@ class ServiceController extends Controller
 
     public function UserImport(Request $request)
     {
-        // dd($request->UserImport);
 
-        $file = $request->file('UserImport');
-        $namaFile = $file->getClientOriginalName();
-        $file->move('import', $namaFile);
+        $file = $request->userImport->store('/import', 'public');
 
-        Excel::import(new UserDetailImport, \public_path('/import/' . $namaFile));
+        $data = Excel::import(new UserImport, \storage_path('/app/public/' . $file));
+        
         return redirect()->back()->with('success', 'Data berhasil di import!');
     }
 

@@ -82,7 +82,7 @@
                     <div class="modal-body">
                         @csrf
                         <div class="custom-file">
-                            <input type="file" name="UserImport" required>
+                            <input type="file" name="userImport" required>
                         </div>
                     </div>
                     <div class="modal-footer">
