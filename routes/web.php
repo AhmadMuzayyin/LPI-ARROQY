@@ -28,7 +28,7 @@ Route::get('/', [HomeController::class, 'index'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 
-Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+Route::get('/home', [AdminController::class, 'index'])->middleware('auth');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/profil', [ProfilController::class, 'index'])->middleware('auth');
@@ -77,6 +77,9 @@ Route::get('/service/UserExport', [ServiceController::class, 'UserExport'])->nam
 
 // galeri
 Route::get('/galeri', [GaleryController::class, 'index'])->middleware('auth');
+Route::get('/galeri/madin', [GaleryController::class, 'indexMADIN'])->middleware('auth');
+Route::get('/galeri/paud', [GaleryController::class, 'indexPAUD'])->middleware('auth');
+Route::get('/galeri/alumni', [GaleryController::class, 'indexAlumni'])->middleware('auth');
 
 // galeri
 Route::get('/pengumuman', [PengumumanController::class, 'index'])->middleware('auth');

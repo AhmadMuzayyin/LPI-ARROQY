@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galery;
 use Illuminate\Http\Request;
 
 class GaleryController extends Controller
@@ -14,10 +15,41 @@ class GaleryController extends Controller
     public function index()
     {
         return view('admin.galeri.index', [
-            'title' => 'Galeri'
+            'title' => 'Galeri',
+            'galeri' => Galery::all()
         ]);
     }
 
+    public function indexMADIN()
+    {
+        return view(
+            'admin.galeri.index',
+            [
+                'title' => 'Galeri',
+                'galeri' => Galery::where('title', 'madin')->get()
+            ]
+        );
+    }
+    public function indexPAUD()
+    {
+        return view(
+            'admin.galeri.index',
+            [
+                'title' => 'Galeri',
+                'galeri' => Galery::where('title', 'paud')->get()
+            ]
+        );
+    }
+    public function indexAlumni()
+    {
+        return view(
+            'admin.galeri.index',
+            [
+                'title' => 'Galeri',
+                'galeri' => Galery::where('title', 'alumni')->get()
+            ]
+        );
+    }
     /**
      * Show the form for creating a new resource.
      *

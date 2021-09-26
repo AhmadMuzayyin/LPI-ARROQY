@@ -15,8 +15,9 @@ class CreateGaleriesTable extends Migration
     {
         Schema::create('galeries', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id');
-            $table->string('name');
+            $table->string('image');
+            $table->string('title');
+            $table->string('excerp');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateGaleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galeries');
+        Schema::dropIfExists('galeriies');
     }
 }
