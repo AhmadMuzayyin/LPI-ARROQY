@@ -28,17 +28,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class=" card-title">Kelola Profil</h5>
-                                {{-- <div class="float-lg-right float-md-right float-sm-right">
-                                    <button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
-                                        aria-expanded="false">
-                                        Galeri
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ url('#') }}">MADIN</a>
-                                        <a class="dropdown-item" href="{{ url('#') }}">PAUD</a>
-                                        <a class="dropdown-item" href="{{ url('#') }}">Alumni</a>
-                                    </div>
-                                </div> --}}
+                                <div class="float-lg-right float-md-right float-sm-right">
+                                    <a href="{{ url('/galeri/add') }}" class="btn btn-info btn-sm"><i
+                                            class="nav-icon fas fa-user-plus"></i>
+                                        Tambah Galeri
+                                    </a>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div>

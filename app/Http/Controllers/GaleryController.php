@@ -57,7 +57,9 @@ class GaleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.galeri.create', [
+            'title' => 'Tambah Data Galeri'
+        ]);
     }
 
     /**
@@ -68,7 +70,12 @@ class GaleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:50',
+            'excerp' => 'required|max:255',
+            'image' => 'image'
+        ]);
+        dd($request);
     }
 
     /**
