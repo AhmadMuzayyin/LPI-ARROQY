@@ -6,24 +6,35 @@ use App\Models\User;
 use App\Models\UserDetail;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\Exportable;
 
-class UserExport implements WithMapping
+class UserExport implements FromCollection
 {
     /**
      * @return \Illuminate\Support\Collection
      */
-    public function map($user): array
+    use Exportable;
+
+    public function collection()
     {
-        // dd($user);
-        return [
-            $user = User::where('role', 5)->first(),
-            // $user->fullname,
-            // $user->nickname,
-            // $user->user_detail->tempat_lahir,
-            // $user->user_detail->tahun_lahir,
-            // $user->user_detail->alamat,
-        ];
-        dd($user);
-        // return UserDetail::all();
+        $ac = User::where('role', 5)->get();
+        return $ac;
+        // foreach( $ac as $kb ){
+        //     $arr = [
+        //         $kb->fullname,
+        //         $kb->nickname,
+        //         $kb->nip,
+        //         $kb->email,
+        //         $kb->user_detail->tempat_lahir,
+        //         $kb->user_detail->tanggal_lahir,
+        //         $kb->user_detail->alamat,
+        //         $kb->user_detail->nama_ayah,
+        //         $kb->user_detail->pekerjaan_ayah,
+        //         $kb->user_detail->nama_ibu,
+        //         $kb->user_detail->pekerjaan_ibu,
+        //         $kb->user_detail->tahun_masuk,
+        //     ];
+        //     return $arr;
+        // }
     }
 }

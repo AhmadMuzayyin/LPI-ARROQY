@@ -39,6 +39,7 @@ class ServiceController extends Controller
     public function UserExport()
     {
         return Excel::download(new UserExport, 'users-' . date('m-d-Y') . '.xlsx');
+        // dd($ac);
 
         return redirect()->back()->with('success', 'Data berhasil di export!');
     }
