@@ -7,8 +7,10 @@ use App\Models\UserDetail;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithProperties;
 
-class UserExport implements FromCollection
+class UserExport implements FromCollection, WithMapping
 {
     /**
      * @return \Illuminate\Support\Collection
@@ -17,24 +19,31 @@ class UserExport implements FromCollection
 
     public function collection()
     {
-        $ac = User::where('role', 5)->get();
-        return $ac;
-        // foreach( $ac as $kb ){
-        //     $arr = [
-        //         $kb->fullname,
-        //         $kb->nickname,
-        //         $kb->nip,
-        //         $kb->email,
-        //         $kb->user_detail->tempat_lahir,
-        //         $kb->user_detail->tanggal_lahir,
-        //         $kb->user_detail->alamat,
-        //         $kb->user_detail->nama_ayah,
-        //         $kb->user_detail->pekerjaan_ayah,
-        //         $kb->user_detail->nama_ibu,
-        //         $kb->user_detail->pekerjaan_ibu,
-        //         $kb->user_detail->tahun_masuk,
-        //     ];
-        //     return $arr;
-        // }
+
+        $users = User::with('user_detail')->where('role', 5)->get();
+
+        return $users;
+    }
+
+    public function map($users): array
+    {
+        
+        $acc = [
+            $users->fullname,
+            $users->nickname,
+            $users->nip,
+            $users->email,
+            $users->user_detail->tempat_lahir,
+            $users->user_detail->tanggal_lahir,
+            $users->user_detail->alamat,
+            $users->user_detail->nama_ayah,
+            $users->user_detail->pekerjaan_ayah,
+            $users->user_detail->nama_ibu,
+            $users->user_detail->pekerjaan_ibu,
+            $users->user_detail->tahun_masuk
+        ];
+
+        return $acc;
+        
     }
 }
