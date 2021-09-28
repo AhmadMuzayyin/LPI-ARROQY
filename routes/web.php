@@ -80,6 +80,8 @@ Route::get('/galeri', [GaleryController::class, 'index'])->middleware('auth');
 Route::get('/galeri/madin', [GaleryController::class, 'indexMADIN'])->middleware('auth');
 Route::get('/galeri/paud', [GaleryController::class, 'indexPAUD'])->middleware('auth');
 Route::get('/galeri/alumni', [GaleryController::class, 'indexAlumni'])->middleware('auth');
+Route::get('/galeri/add', [GaleryController::class, 'create'])->middleware('auth');
+Route::post('/galeri', [GaleryController::class, 'store'])->middleware('auth');
 
 // galeri
 Route::get('/pengumuman', [PengumumanController::class, 'index'])->middleware('auth');
