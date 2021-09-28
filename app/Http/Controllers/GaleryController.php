@@ -75,7 +75,16 @@ class GaleryController extends Controller
             'excerp' => 'required|max:255',
             'image' => 'image'
         ]);
-        dd($request);
+        $img = $request->file('image');
+        $img->move(public_path('/uploads/galeri'), $img->getClientOriginalName() . date('d-m-Y') . '.' . $img->getClientOriginalExtension());
+        // dd();
+        Galery::create([
+            'title' => $request->title,
+            'excerp' => $request->excerp,
+            'image' => $request->file('image')->getClientOriginalName() . date('d-m-Y') . '.' . $img->getClientOriginalExtension()
+        ]);
+
+        return redirect('galeri')->with('success', 'Data Berhasil ditambahkan!');
     }
 
     /**
@@ -118,8 +127,10 @@ class GaleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Galery $Galery)
     {
-        //
+        // dd($Galery->title);
+        Galery::destroy($Galery->id);
+        return redirect('galeri')->with('success', 'Data berhasil di hapus!');
     }
 }

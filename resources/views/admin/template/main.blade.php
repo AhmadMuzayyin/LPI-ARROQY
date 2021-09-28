@@ -316,8 +316,8 @@
                             </li>
                             {{-- Galeri --}}
                             <li class="nav-item">
-                                <a href="{{ url('/pengumuman') }}"
-                                    class="nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">
+                                <a href="{{ url('/info') }}"
+                                    class="nav-link {{ Request::is('info') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-newspaper"></i>
                                     <p>
                                         Pengumuman

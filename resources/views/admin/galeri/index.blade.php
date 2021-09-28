@@ -38,15 +38,19 @@
                             <div class="card-body">
                                 <div>
                                     <div class="btn-group w-100 mb-2">
-                                        <a class="btn btn-info active" href="{{ url('/galeri') }}" data-filter="all"> All
+                                        <a class="btn btn-info {{ Request::is('galeri') ? 'active' : '' }}"
+                                            href="{{ url('/galeri') }}" data-filter="all"> All
                                             Galeri </a>
-                                        <a class="btn btn-info" href="{{ url('/galeri/madin') }}" data-filter="1">
+                                        <a class="btn btn-info {{ Request::is('galeri/madin') ? 'active' : '' }}"
+                                            href="{{ url('/galeri/madin') }}" data-filter="1">
                                             Galeri MADIN
                                         </a>
-                                        <a class="btn btn-info" href="{{ url('/galeri/paud') }}" data-filter="2"> Galeri
+                                        <a class="btn btn-info {{ Request::is('galeri/paud') ? 'active' : '' }}"
+                                            href="{{ url('/galeri/paud') }}" data-filter="2"> Galeri
                                             PAUD
                                         </a>
-                                        <a class="btn btn-info" href="{{ url('/galeri/alumni') }}" data-filter="3">
+                                        <a class="btn btn-info {{ Request::is('galeri/alumni') ? 'active' : '' }}"
+                                            href="{{ url('/galeri/alumni') }}" data-filter="3">
                                             Galeri Alumni
                                         </a>
                                     </div>
@@ -55,13 +59,17 @@
                                     @foreach ($galeri as $g)
                                         <div class="col-md-3 mb-3 mt-2">
                                             <div class="card">
-                                                <img src="{{ url('/uploads') . '/' . $g->image }}" class="card-img-top"
-                                                    alt="...">
+                                                <img src="{{ url('/uploads') . '/galeri' . '/' . $g->image }}"
+                                                    class="card-img-top" alt="{{ $g->exerpt }}">
                                                 <div class="card-body">
                                                     <h5 class="card-title">{{ $g->title }}</h5>
                                                     <p class="card-text">{{ $g->excerp }}</p>
-                                                    <a href="#" class="card-link">Edit</a>
-                                                    <a href="#" class="card-link">Hapus</a>
+                                                    <form action="{{ url('/galeri') . '/' . $g->id }}" method="POST">
+                                                        <a href="#" class="btn btn-info">Edit</a>
+                                                        @csrf
+                                                        <button class="btn btn-danger"
+                                                            onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

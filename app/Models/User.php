@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pengumuman;
 use App\Models\UserDetail;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -48,5 +49,10 @@ class User extends Authenticatable
     public function user_detail()
     {
         return $this->hasOne(UserDetail::class);
+    }
+
+    public function info()
+    {
+        return $this->hasMany(Pengumuman::class);
     }
 }

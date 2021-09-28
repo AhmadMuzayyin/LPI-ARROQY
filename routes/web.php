@@ -82,6 +82,7 @@ Route::get('/galeri/paud', [GaleryController::class, 'indexPAUD'])->middleware('
 Route::get('/galeri/alumni', [GaleryController::class, 'indexAlumni'])->middleware('auth');
 Route::get('/galeri/add', [GaleryController::class, 'create'])->middleware('auth');
 Route::post('/galeri', [GaleryController::class, 'store'])->middleware('auth');
+Route::post('/galeri/{Galery:id}', [GaleryController::class, 'destroy'])->middleware('auth');
 
 // galeri
-Route::get('/pengumuman', [PengumumanController::class, 'index'])->middleware('auth');
+Route::get('/info', [PengumumanController::class, 'index'])->middleware('auth');
