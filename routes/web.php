@@ -86,3 +86,4 @@ Route::post('/galeri/{Galery:id}', [GaleryController::class, 'destroy'])->middle
 
 // galeri
 Route::get('/info', [PengumumanController::class, 'index'])->middleware('auth');
+Route::post('/info', [PengumumanController::class, 'store'])->middleware('auth');

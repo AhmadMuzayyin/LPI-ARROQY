@@ -31,8 +31,8 @@
                                             class="form-control @error('nisn')
                                               is-invalid
                                             @enderror"
-                                            id="nis" name="nisn" placeholder="NISN" required
-                                            value="{{ $siswa->user_detail->nisn }}" readonly>
+                                            id="nis" name="nisn" placeholder="NISN" required value="{{ $siswa->nisn }}"
+                                            readonly>
                                         @error('nisn')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

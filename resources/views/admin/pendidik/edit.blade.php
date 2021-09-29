@@ -31,8 +31,8 @@
                                             class="form-control @error('nip')
                                               is-invalid
                                             @enderror"
-                                            id="nis" name="nip" placeholder="NIP" required
-                                            value="{{ $pendidik->user_detail->nip }}" readonly>
+                                            id="nis" name="nip" placeholder="NIP" required value="{{ $pendidik->nip }}"
+                                            readonly>
                                         @error('nip')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

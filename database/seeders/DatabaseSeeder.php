@@ -49,55 +49,55 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'profil_photo' => 'Profil.jpg'
         ]);
-        $user = User::create([
-            'fullname' => 'Pendidik',
-            'nickname' => 'pendidik',
-            'role' => '4',
-            'nip' => '202120001',
-            'email' => 'pendidik@lpi-arroqy.ac.id',
-            'password' => bcrypt('password'),
-            'email_verified_at' => now(),
-            'profil_photo' => 'Profil.jpg'
-        ]);
+        // $user = User::create([
+        //     'fullname' => 'Pendidik',
+        //     'nickname' => 'pendidik',
+        //     'role' => '4',
+        //     'nip' => '202120001',
+        //     'email' => 'pendidik@lpi-arroqy.ac.id',
+        //     'password' => bcrypt('password'),
+        //     'email_verified_at' => now(),
+        //     'profil_photo' => 'Profil.jpg'
+        // ]);
 
-        UserDetail::create([
-            'user_id' => $user->id,
-            'tempat_lahir' => 'Sumenep',
-            'tanggal_lahir' => '1995-05-15',
-            'alamat' => 'Gadu Barat Ganding Sumenep',
-            'nama_ayah' => 'Man',
-            'pekerjaan_ayah' => 'Petani',
-            'nama_ibu' => 'Woman',
-            'pekerjaan_ibu' => 'Petani',
-            'jabatan' => 'Kepala Sekolah'
-        ]);
-        $kelas = Kelas::create([
-            'name' => '1 A',
-            'tingkat' => 'MADIN'
-        ]);
-        $user = User::create([
-            'fullname' => 'Siswa',
-            'nickname' => 'siswa',
-            'role' => '5',
-            'nip' => '202120050',
-            'email' => 'siswa@lpi-arroqy.ac.id',
-            'password' => bcrypt('password'),
-            'email_verified_at' => now(),
-            'profil_photo' => 'Profil.jpg'
-        ]);
+        // UserDetail::create([
+        //     'user_id' => $user->id,
+        //     'tempat_lahir' => 'Sumenep',
+        //     'tanggal_lahir' => '1995-05-15',
+        //     'alamat' => 'Gadu Barat Ganding Sumenep',
+        //     'nama_ayah' => 'Man',
+        //     'pekerjaan_ayah' => 'Petani',
+        //     'nama_ibu' => 'Woman',
+        //     'pekerjaan_ibu' => 'Petani',
+        //     'jabatan' => 'Kepala Sekolah'
+        // ]);
+        // $kelas = Kelas::create([
+        //     'name' => '1 A',
+        //     'tingkat' => 'MADIN'
+        // ]);
+        // $user = User::create([
+        //     'fullname' => 'Siswa',
+        //     'nickname' => 'siswa',
+        //     'role' => '5',
+        //     'nip' => '202120050',
+        //     'email' => 'siswa@lpi-arroqy.ac.id',
+        //     'password' => bcrypt('password'),
+        //     'email_verified_at' => now(),
+        //     'profil_photo' => 'Profil.jpg'
+        // ]);
 
-        UserDetail::create([
-            'user_id' => $user->id,
-            'tempat_lahir' => 'Sumenep',
-            'tanggal_lahir' => '2014-05-15',
-            'alamat' => 'Gadu Barat Ganding Sumenep',
-            'nama_ayah' => 'Man',
-            'pekerjaan_ayah' => 'Petani',
-            'nama_ibu' => 'Woman',
-            'pekerjaan_ibu' => 'Petani',
-            'kelas_id' => $kelas->id,
-            'tahun_masuk' => '2021-10-05'
-        ]);
+        // UserDetail::create([
+        //     'user_id' => $user->id,
+        //     'tempat_lahir' => 'Sumenep',
+        //     'tanggal_lahir' => '2014-05-15',
+        //     'alamat' => 'Gadu Barat Ganding Sumenep',
+        //     'nama_ayah' => 'Man',
+        //     'pekerjaan_ayah' => 'Petani',
+        //     'nama_ibu' => 'Woman',
+        //     'pekerjaan_ibu' => 'Petani',
+        //     'kelas_id' => $kelas->id,
+        //     'tahun_masuk' => '2021-10-05'
+        // ]);
 
         // create default profil
         Profil::create([
