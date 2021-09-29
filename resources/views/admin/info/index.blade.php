@@ -30,7 +30,8 @@
                                 <h5 class=" card-title">{{ $title }}</h5>
                             </div>
                             <div class="card-body">
-                                <form action="{{ url('/pengumuman') }}" method="POST">
+                                <form action="{{ url('/info') }}" method="POST">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="title">Judul Pengumuman</label>
                                         <input type="text" class="form-control @error('title') is-invalid @enderror"
@@ -57,6 +58,7 @@
                                             berdasarkan nama panjang
                                             anda!</small>
                                     </div>
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </form>

@@ -26,7 +26,7 @@
 
                                     <h3 class="profile-username text-center">{{ $siswa->fullname }}</h3>
 
-                                    <p class="text-muted text-center">{{ $siswa->user_detail->nisn }}</p>
+                                    <p class="text-muted text-center">{{ $siswa->nisn }}</p>
 
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">

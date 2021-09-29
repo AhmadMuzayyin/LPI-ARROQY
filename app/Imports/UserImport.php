@@ -27,27 +27,28 @@ class UserImport implements ToCollection
                 'fullname' => $row[1],
                 'nickname' => $row[2],
                 'role' => $row[3],
-                'nip' => $row[4],
-                'email' => $row[5],
+                'nisn' => $row[4],
+                'nip' => $row[5],
+                'email' => $row[6],
                 'email_verified_at' => now(),
-                'password' => Hash::make($row[6]),
-                'profil_photo' => $row[7],
+                'password' => Hash::make($row[7]),
+                'profil_photo' => $row[8],
             ]);
 
             UserDetail::create([
                 'user_id' => $tuser->id,
-                'tempat_lahir' => $row[9],
-                'tanggal_lahir' => Date::excelToDateTimeObject($row[10]),
-                'alamat' => $row[11],
-                'nama_ayah' => $row[12],
-                'pekerjaan_ayah' => $row[13],
-                'nama_ibu' => $row[14],
-                'pekerjaan_ibu' => $row[15],
-                'jabatan' => $row[16],
-                'tahun_masuk' => Date::excelToDateTimeObject($row[17]),
-                'tahun_keluar' => Date::excelToDateTimeObject($row[18]), 
+                'tempat_lahir' => $row[10],
+                'tanggal_lahir' => Date::excelToDateTimeObject($row[11]),
+                'alamat' => $row[12],
+                'nama_ayah' => $row[13],
+                'pekerjaan_ayah' => $row[14],
+                'nama_ibu' => $row[15],
+                'pekerjaan_ibu' => $row[16],
+                'jabatan' => $row[17],
+                'tahun_masuk' => Date::excelToDateTimeObject($row[18]),
+                'tahun_keluar' => Date::excelToDateTimeObject($row[19]),
+                'kelas_id' => $row[20]
             ]);
-
         }
     }
 }

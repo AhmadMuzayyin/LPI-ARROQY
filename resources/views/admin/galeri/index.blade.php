@@ -62,7 +62,7 @@
                                                 <img src="{{ url('/uploads') . '/galeri' . '/' . $g->image }}"
                                                     class="card-img-top" alt="{{ $g->exerpt }}">
                                                 <div class="card-body">
-                                                    <h5 class="card-title">{{ $g->title }}</h5>
+                                                    <h5 class="card-title text-bold">{{ $g->title }}</h5>
                                                     <p class="card-text">{{ $g->excerp }}</p>
                                                     <form action="{{ url('/galeri') . '/' . $g->id }}" method="POST">
                                                         <a href="#" class="btn btn-info">Edit</a>

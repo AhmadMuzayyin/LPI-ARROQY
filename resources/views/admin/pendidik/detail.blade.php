@@ -26,7 +26,7 @@
 
                                     <h3 class="profile-username text-center">{{ $pendidik->fullname }}</h3>
 
-                                    <p class="text-muted text-center">{{ $pendidik->user_detail->nip }}</p>
+                                    <p class="text-muted text-center">{{ $pendidik->nip }}</p>
 
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">

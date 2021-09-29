@@ -6,6 +6,7 @@ use App\Models\Info;
 use App\Models\Pengumuman;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class PengumumanController extends Controller
 {
@@ -40,7 +41,17 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            Pengumuman::create([
+                'user_id' => $request->user_id,
+                'title' => $request->title,
+                'body' => $request->body
+            ]);
+
+            return redirect('info')->with('success', 'Data berhasil ditambahkan!');
+        } catch (\Throwable $th) {
+            return $th;
+        }
     }
 
     /**
