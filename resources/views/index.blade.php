@@ -3,26 +3,39 @@
     <!-- ======= hero Section ======= -->
     <section id="hero">
 
-        <div class="hero-content" data-aos="fade-up">
+        {{-- <div class="hero-content" data-aos="fade-up">
             <h2>Selamat Datang Di <span>LPI - ARROQY</span></h2>
             <div>
                 <a href="#about" class="btn-get-started scrollto">Profil Lembaga</a>
                 <a href="#portfolio" class="btn-projects scrollto">Galeri Kegiatan</a>
             </div>
-        </div>
+        </div> --}}
 
         <div class="hero-slider swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/1.jpg') }});"></div>
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/2.jpg') }});"></div>
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/3.jpg') }});"></div>
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/4.jpg') }});"></div>
-                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/5.jpg') }});"></div>
+                <div class="swiper-slide video">
+                    <video src="{{ url('/uploads/hero-carousel/1.mp4') }}" autoplay muted></video>
+                </div>
+                <div class="swiper-slide"
+                    style="background-image: url({{ url('/uploads/hero-carousel/IMG_20210622_231835.jpg') }});">
+                </div>
+                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/3.jpg') }});">
+                </div>
+                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/4.jpg') }});">
+                </div>
+                <div class="swiper-slide" style="background-image: url({{ url('/uploads/hero-carousel/5.jpg') }});">
+                </div>
             </div>
         </div>
 
     </section><!-- End Hero Section -->
-
+    {{-- <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#0099ff" fill-opacity="1"
+                d="M0,320L60,314.7C120,309,240,299,360,250.7C480,203,600,117,720,96C840,75,960,117,1080,149.3C1200,181,1320,203,1380,213.3L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
+    </div> --}}
     <main id="main">
 
         <!-- ======= About Section ======= -->
@@ -295,7 +308,8 @@
                 <div class="row">
                     <div class="col-lg-9 text-center text-lg-start">
                         <h3 class="cta-title">IKLAN LEWAT</h3>
-                        <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu
                             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                             deserunt mollit anim id est laborum.</p>
                     </div>
@@ -338,7 +352,7 @@
                         <div class="contact-email">
                             <i class="bi bi-envelope"></i>
                             <h3>Email</h3>
-                            <p><a href="mailto:lpi-arroqy@gmail.com">lpi-arroqy@gmail.com</a></p>
+                            <p><a href="mailto:lpi-arroqy@gmail.ac.id">lpi-arroqy@gmail.ac.id</a></p>
                         </div>
                     </div>
 
@@ -386,3 +400,6 @@
 
     </main><!-- End #main -->
 @endsection
+@push('after-script')
+
+@endpush

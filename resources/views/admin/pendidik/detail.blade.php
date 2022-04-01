@@ -1,80 +1,78 @@
 @extends('admin.template.main')
+
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">LPI - ARROQY</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Santri</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-title">Monthly Recap Report</h5>
-                  <div class="card-tools float-sm-right">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                  <table id="tableSantri" class="table table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <th>Nis</th>
-                        <th>Nama</th>
-                        <th>Tempat/Tanggal Lahir</th>
-                        <th>Alamat</th>
-                        <th><i class="fas fa-cog"></i></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>121212</td>
-                        <td>Ahmad Muzayyin</td>
-                        <td>Sumenep, 15-05-1999</td>
-                        <td>Gadu Barat Ganding Sumenep</td>
-                        <td>
-                          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-success"><i class="fas fa-eye"></i></button>
-                            <button type="button" class="btn btn-primary"><i class="fas fa-user-edit"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+            </div><!-- /.container-fluid -->
         </div>
-        <!-- /.row -->
+        <!-- /.content-header -->
 
-      </div><!--/. container-fluid -->
-    </section>
-    <!-- /.content -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
 
-  </div>
+                    <div class="col-md-12">
+                        @foreach ($data as $pendidik)
+                            <div class="card">
+                                <div class="card-body box-profile">
+                                    <div class="text-center">
+                                        <img class="profile-user-img img-fluid img-circle"
+                                            src="{{ url('/uploads') . '/' . $pendidik->profil_photo }}"
+                                            alt="User profile picture">
+                                    </div>
+
+                                    <h3 class="profile-username text-center">{{ $pendidik->fullname }}</h3>
+
+                                    <p class="text-muted text-center">{{ $pendidik->nip }}</p>
+
+                                    <ul class="list-group list-group-unbordered mb-3">
+                                        <li class="list-group-item">
+                                            <b>Alamat</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $pendidik->user_detail->alamat }}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Tempat Tanggal Lahir</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $pendidik->user_detail->tempat_lahir . ', ' . $pendidik->user_detail->tanggal_lahir }}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Nama Ayah</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $pendidik->user_detail->nama_ayah }}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Pekerjaan Ayah</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $pendidik->user_detail->pekerjaan_ayah }}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Nama Ibu</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $pendidik->user_detail->nama_ibu }}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Pekerjaan Ibu</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $pendidik->user_detail->pekerjaan_ibu }}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Jabatan</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $pendidik->user_detail->jabatan }}</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Tahun Masuk</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $pendidik->user_detail->tahun_masuk }}</a>
+                                        </li>
+                                    </ul>
+
+                                    {{-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> --}}
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        @endforeach
+                        <!-- /.row -->
+                    </div>
+                    <!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+
+    </div>
 @endsection

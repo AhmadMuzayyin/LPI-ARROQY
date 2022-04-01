@@ -36,9 +36,15 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 {{-- Logout --}}
-                <a href="{{ route('logout') }}" class="text-light">
-                    <i class="fas fa-sign-out-alt mr-2"></i> Keluar
-                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    {{-- <a href="{{ route('logout') }}" class="text-light">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Keluar
+                    </a> --}}
+                    <button type="submit" class="nav-link border-0 bg-red">
+                        <i class=" fas fa-sign-out-alt mr-2"></i> Keluar
+                    </button>
+                </form>
                 </li>
             </ul>
         </nav>

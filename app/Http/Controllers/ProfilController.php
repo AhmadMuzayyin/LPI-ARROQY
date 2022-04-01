@@ -16,7 +16,7 @@ class ProfilController extends Controller
     {
         return view('admin.profil.index', [
             'title' => 'Profil',
-            'profil' => Profil::all()
+            'profils' => Profil::all()->first()
         ]);
     }
 
@@ -47,9 +47,14 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function edit(Profil $profil)
     {
-        //
+        // dd($profil);
+        return view('admin.profil.edit', [
+            'title' => 'Profil',
+            'profil' => $profil,
+            'profils' => Profil::all()
+        ]);
     }
 
     /**
@@ -58,7 +63,7 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function show($id)
     {
         //
     }
@@ -70,9 +75,11 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Profil $profil)
     {
-        //
+        // dd($profil->slug);
+        Profil::where('slug', $profil->slug)->update(['profil' => $request->profil]);
+        return redirect('/profil' . '/' . $profil->slug);
     }
 
     /**

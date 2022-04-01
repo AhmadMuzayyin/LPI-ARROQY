@@ -19,6 +19,21 @@
     <link rel="stylesheet" href="{{ url('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('/dist/css/adminlte.min.css') }}">
+
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+            margin: 0;
+        }
+
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -35,10 +50,11 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url('/admin') }}" class="nav-link">Home</a>
+                    <a href="{{ url('/home') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -85,7 +101,8 @@
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-danger"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">Call me whenever you can...</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -102,7 +119,8 @@
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-muted"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">I got your message bro</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -171,17 +189,21 @@
                         <i class="fas fa-cog"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <form action="{{ route('logout') }}">
+
+                        <a href="#" class="dropdown-item"><img src="{{ url('/uploads/user1-128x128.jpg') }}"
+                                class="img-size-50 mr-3 img-circle" alt="User Image">
+                            {{ Auth::user()->fullname }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog mr-2"></i> Pengaturan
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" class="dropdown-item">
                                 <i class="fas fa-sign-out-alt mr-2"></i> Keluar
                             </button>
                         </form>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-cog mr-2"></i> Pengaturan
-                        </a>
-
                     </div>
                 </li>
             </ul>
@@ -191,7 +213,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ url('/admin') }}" class="brand-link">
+            <a href="{{ url('/home') }}" class="brand-link">
                 <img src="{{ url('/uploads/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Arroqy</span>
@@ -200,17 +222,9 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="{{ url('/uploads/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-                    </div>
-                </div>
 
                 <!-- Sidebar Menu -->
-                @if (Auth()->user()->is_admin == 1)
+                @if (Auth()->user()->role == 1)
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
@@ -218,11 +232,11 @@
                                 with font-awesome or any other icon font library -->
                             <li class="nav-header">DATA MASTER</li>
                             <li class="nav-item">
-                                <a href="{{ url('/santri') }}"
-                                    class="nav-link {{ Request::is('santri') ? 'active' : '' }}">
+                                <a href="{{ url('/siswa') }}"
+                                    class="nav-link {{ Request::is('siswa') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
-                                        Santri
+                                        Siswa
                                     </p>
                                 </a>
                             </li>
@@ -231,7 +245,7 @@
                             <li class="nav-item">
                                 <a href="{{ url('/pendidik') }}"
                                     class="nav-link {{ Request::is('pendidik') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <i class="nav-icon fas fa-user-tie"></i>
                                     <p>
                                         Pendidik
                                     </p>
@@ -249,63 +263,161 @@
                                 </a>
                             </li>
 
-                            <li class="nav-header">KONFIGURASI</li>
+                            {{-- Kelas --}}
                             <li class="nav-item">
-                                <a href="{{ url('/profil') }}"
-                                    class="nav-link {{ Request::is('profil') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-id-card"></i>
+                                <a href="{{ url('/kelas') }}"
+                                    class="nav-link {{ Request::is('kelas') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                     <p>
-                                        Profil
+                                        Kelas
                                     </p>
                                 </a>
                             </li>
-                            {{-- Profil --}}
+
+                            <li class="nav-header">KONFIGURASI</li>
                             <li class="nav-item">
                                 <a href="{{ url('/user') }}"
                                     class="nav-link {{ Request::is('user') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-users-cog"></i>
                                     <p>
-                                        Kelola Pengguna
+                                        Perizinan Pengguna
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/service') }}"
+                                    class="nav-link {{ Request::is('service') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-cogs"></i>
+                                    <p>
+                                        Service Data
                                     </p>
                                 </a>
                             </li>
                             {{-- admin --}}
-
-                        </ul>
-                    </nav>
-                @elseif (Auth()->user()->is_admin == 2)
-                    <nav class="mt-2">
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                            data-accordion="false">
-                            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                            <li class="nav-header">DATA MASTER</li>
-                            <li class="nav-item">
-                                <a href="{{ url('/santri') }}"
-                                    class="nav-link {{ Request::is('santri') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-users"></i>
-                                    <p>
-                                        Santri
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-header">KONFIGURASI</li>
+                            <li class="nav-header">POSTINGAN</li>
                             <li class="nav-item">
                                 <a href="{{ url('/profil') }}"
                                     class="nav-link {{ Request::is('profil') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-id-card"></i>
                                     <p>
                                         Profil
-                                        <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
                             </li>
                             {{-- Profil --}}
-
+                            <li class="nav-item">
+                                <a href="{{ url('/galeri') }}"
+                                    class="nav-link  {{ Request::is('galeri') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-images"></i>
+                                    <p>
+                                        Galeri
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Galeri --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/info') }}"
+                                    class="nav-link {{ Request::is('info') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-newspaper"></i>
+                                    <p>
+                                        Pengumuman
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Berita --}}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chalkboard"></i>
+                                    <p>
+                                        Akademik
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Akademik --}}
                         </ul>
                     </nav>
-                @elseif (Auth()->user()->is_admin == NULL)
+                @elseif (Auth()->user()->role == 4)
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                            data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+                                with font-awesome or any other icon font library -->
+                            <li class="nav-header">DATA MASTER</li>
+                            <li class="nav-item">
+                                <a href="{{ url('/siswa') }}"
+                                    class="nav-link {{ Request::is('siswa') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Siswa
+                                    </p>
+                                </a>
+                            </li>
+
+                            {{-- Pendidik --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/pendidik') }}"
+                                    class="nav-link {{ Request::is('pendidik') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-user-tie"></i>
+                                    <p>
+                                        Pendidik
+                                    </p>
+                                </a>
+                            </li>
+
+                            {{-- Kelas --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/kelas') }}"
+                                    class="nav-link {{ Request::is('kelas') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <p>
+                                        Kelas
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-header">POSTINGAN</li>
+                            <li class="nav-item">
+                                <a href="{{ url('/profil') }}"
+                                    class="nav-link {{ Request::is('profil') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-id-card"></i>
+                                    <p>
+                                        Profil
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Profil --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/galeri') }}"
+                                    class="nav-link  {{ Request::is('galeri') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-images"></i>
+                                    <p>
+                                        Galeri
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Galeri --}}
+                            <li class="nav-item">
+                                <a href="{{ url('/pengumuman') }}"
+                                    class="nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-newspaper"></i>
+                                    <p>
+                                        Pengumuman
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Berita --}}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chalkboard"></i>
+                                    <p>
+                                        Akademik
+                                    </p>
+                                </a>
+                            </li>
+                            {{-- Akademik --}}
+                        </ul>
+                    </nav>
+                @elseif (Auth()->user()->role == NULL)
                 @endif
 
                 <!-- /.sidebar-menu -->

@@ -37,34 +37,33 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Nama</th>
-                                                <th>Email</th>
                                                 <th>Role</th>
                                                 <th><i class="fas fa-cog"></i></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no = 1; ?>
                                             @foreach ($user as $a)
                                                 <tr>
-                                                    <td>{{ $no }}</td>
-                                                    <td>{{ $a->name }}</td>
-                                                    <td>{{ $a->email }}</td>
-                                                    @if ($a->is_admin == null)
-                                                        <td>Belum dikonfirmasi</td>
-                                                    @elseif($a->is_admin == 1)
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $a->fullname }}</td>
+                                                    @if ($a->role == 1)
                                                         <td>Administrator</td>
-                                                    @elseif($a->is_admin == 2)
-                                                        <td>Pendidik</td>
-                                                    @elseif($a->is_admin == 3)
+                                                    @elseif($a->role == 2)
+                                                        <td>Admin E-Learning</td>
+                                                    @elseif($a->role == 3)
+                                                        <td>Admin Perpustakaan</td>
+                                                    @elseif($a->role == 4)
+                                                        <td>kepala Pendidik</td>
+                                                    @elseif($a->role == 5)
                                                         <td>Santri</td>
-                                                    @elseif($a->is_admin == 4)
-                                                        <td>Alumni</td>
+                                                    @elseif($a->role == 6)
+                                                        <td>Ketua Alumni</td>
                                                     @endif
                                                     <td>
                                                         <div class="btn-group btn-group-sm" role="group"
                                                             aria-label="Basic example">
                                                             <button type="button" id="editadmin"
-                                                                class="btn btn-success ModalAdmin"
+                                                                class="btn btn-primary ModalAdmin"
                                                                 data-id="{{ $a->id }}">
                                                                 <i class="fas fa-user-edit"></i>
                                                             </button>
@@ -76,7 +75,6 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <?php $no++; ?>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -264,6 +262,5 @@
             });
 
         });
-
     </script>
 @endpush
