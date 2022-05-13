@@ -38,8 +38,15 @@
                                     <div class="col-lg-2" style="margin-bottom: 2%">
                                         <a href="{{ url('/alumni/add') }}" type="button"
                                             class="btn btn-block bg-gradient-info btn-sm m-0"><i
-                                                class="nav-icon fas fa-user-plus"></i>Tambah
+                                                class="nav-icon fas fa-user-plus"></i> Tambah
                                             Alumni</a>
+                                    </div>
+                                    <div class="col-lg-2" style="margin-bottom: 2%">
+                                        <button type="button" class="btn btn-block bg-gradient-info btn-sm m-0"
+                                            class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i
+                                                class="fa fa-file-excel"></i>
+                                            Import
+                                            Alumni</button>
                                     </div>
                                 </div>
                                 <div class="table-responsive">
@@ -48,8 +55,8 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Tempat/Tanggal Lahir</th>
                                                 <th>Alamat</th>
+                                                <th>Bagian</th>
                                                 <th><i class="fas fa-cog"></i></th>
                                             </tr>
                                         </thead>
@@ -58,9 +65,8 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $data->fullname }}</td>
-                                                    <td>{{ $data->user_detail->tempat_lahir . ', ' . $data->user_detail->tanggal_lahir }}
-                                                    </td>
                                                     <td>{{ $data->user_detail->alamat }}</td>
+                                                    <td>{{ $data->user_detail->bagian }}</td>
                                                     <td>
                                                         <form action="{{ url('/alumni') . '/' . $data->nickname }}"
                                                             method="POST">
@@ -99,7 +105,7 @@
         </section>
         <!-- /.content -->
     </div>
-
+    @include('admin.alumni.modal')
 @endsection
 
 @push('after-script')

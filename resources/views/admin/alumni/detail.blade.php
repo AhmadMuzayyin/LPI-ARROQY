@@ -32,32 +32,8 @@
                                                 class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->alamat }}</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <b>Tempat Tanggal Lahir</b> <a
-                                                class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->tempat_lahir . ', ' . $alumni->user_detail->tanggal_lahir }}</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <b>Nama Ayah</b> <a
-                                                class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->nama_ayah }}</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <b>Pekerjaan Ayah</b> <a
-                                                class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->pekerjaan_ayah }}</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <b>Nama Ibu</b> <a
-                                                class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->nama_ibu }}</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <b>Pekerjaan Ibu</b> <a
-                                                class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->pekerjaan_ibu }}</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <b>Tahun Masuk</b> <a
-                                                class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->tahun_masuk }}</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <b>Tahun Keluar</b> <a
-                                                class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->tahun_keluar }}</a>
+                                            <b>Lokasi Alumni</b> <a
+                                                class="float-right text-decoration-none text-dark">{{ $alumni->user_detail->bagian }}</a>
                                         </li>
                                     </ul>
 

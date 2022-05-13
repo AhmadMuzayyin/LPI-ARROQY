@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galery;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,9 +14,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $galery = Galery::all();
         return view('index',[
-            'title' => 'LPI - ARROQY'
+            'title' => 'LPI - ARROQY',
+            'galeri' => $galery ?? ''
         ]);
+    }
+
+    public function page(){
+       return view('page'); 
     }
 
     /**

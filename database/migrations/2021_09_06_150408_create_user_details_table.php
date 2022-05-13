@@ -27,6 +27,7 @@ class CreateUserDetailsTable extends Migration
             $table->string('jabatan')->nullable();
             $table->date('tahun_masuk')->nullable();
             $table->date('tahun_keluar')->nullable();
+            $table->enum('bagian', ['Barat', 'Tengah', 'Timur', 'Luar']);
             $table->timestamps();
         });
     }

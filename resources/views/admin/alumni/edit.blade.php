@@ -28,10 +28,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="fullname">Nama Lengkap</label>
-                                            <input type="text"
-                                                class="form-control @error('fullname')
-                                              is-invalid
-                                            @enderror"
+                                            <input type="text" class="form-control @error('fullname') is-invalid @enderror"
                                                 id="fullname" name="fullname" placeholder="Nama Lengkap" required
                                                 value="{{ $alumni->fullname }}" autofocus>
                                             @error('fullname')
@@ -43,150 +40,42 @@
 
                                         <div class="form-group col-md-6">
                                             <label for="nickname">Nama Panggilan</label>
-                                            <input type="text"
-                                                class="form-control @error('nickname')
-                                              is-invalid
-                                            @enderror"
+                                            <input type="text" class="form-control @error('nickname') is-invalid @enderror"
                                                 id="nickname" name="nickname" placeholder="Nama Panggilan" required
                                                 value="{{ $alumni->nickname }}" readonly>
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="alamat">Alamat Lengkap</label>
-                                        <input type="text"
-                                            class="form-control @error('alamat')
-                                              is-invalid
-                                            @enderror"
-                                            id="alamat" name="alamat" placeholder="Alamat Lengkap" required
-                                            value="{{ $alumni->user_detail->alamat }}">
-                                        @error('alamat')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <label for="alamat">Alamat Lengkap</label>
+                                            <input type="text" class="form-control @error('alamat') is-invalid @enderror"
+                                                id="alamat" name="alamat" placeholder="Alamat Lengkap" required
+                                                value="{{ $alumni->user_detail->alamat }}">
+                                            @error('alamat')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
 
-                                    <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="tempat">Tempat</label>
-                                            <input type="text"
-                                                class="form-control @error('tempat_lahir')
-                                              is-invalid
-                                            @enderror"
-                                                id="tempat" name="tempat_lahir" placeholder="Tempat Lahir"
-                                                value="{{ $alumni->user_detail->tempat_lahir }}">
-                                            @error('tempat_lahir')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="tgl">Tanggal Lahir</label>
-                                            <input type="date"
-                                                class="form-control @error('tanggal_lahir')
-                                              is-invalid
-                                            @enderror"
-                                                id="tgl" name="tanggal_lahir" required
-                                                value="{{ $alumni->user_detail->tanggal_lahir }}">
-                                            @error('tanggal_lahir')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="NamaAyah">Nama Ayah</label>
-                                            <input type="text"
-                                                class="form-control @error('nama_ayah')
-                                              is-invalid
-                                            @enderror"
-                                                id="NamaAyah" name="nama_ayah" placeholder="Nama Ayah" required
-                                                value="{{ $alumni->user_detail->nama_ayah }}">
-                                            @error('nama_ayah')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="PekerjaanAyah">Pekerjaan Ayah</label>
-                                            <input type="text"
-                                                class="form-control @error('pekerjaan_ayah')
-                                              is-invalid
-                                            @enderror"
-                                                id="PekerjaanAyah" name="pekerjaan_ayah" placeholder="Pekerjaan Ayah"
-                                                required value="{{ $alumni->user_detail->pekerjaan_ayah }}">
-                                            @error('pekerjaan_ayah')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="NamaIbu">Nama Ibu</label>
-                                            <input type="text"
-                                                class="form-control @error('nama_ibu')
-                                              is-invalid
-                                            @enderror"
-                                                id="NamaIbu" name="nama_ibu" placeholder="Nama Ibu" required
-                                                value="{{ $alumni->user_detail->nama_ibu }}">
-                                            @error('nama_ibu')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="PekerjaanIbu">Pekerjaan Ibu</label>
-                                            <input type="text"
-                                                class="form-control @error('pekerjaan_ibu')
-                                              is-invalid
-                                            @enderror"
-                                                id="PekerjaanIbu" name="pekerjaan_ibu" placeholder="Pekerjaan Ibu" required
-                                                value="{{ $alumni->user_detail->pekerjaan_ibu }}">
-                                            @error('pekerjaan_ibu')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="tahun_masuk">Tahun Masuk</label>
-                                            <input type="date"
-                                                class="form-control @error('tahun_masuk')
-                                              is-invalid
-                                            @enderror"
-                                                id="tahun_masuk" name="tahun_masuk" required
-                                                value="{{ $alumni->user_detail->tahun_masuk }}">
-                                            @error('tahun_masuk')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="tahun_keluar">Tahun Keluar</label>
-                                            <input type="date"
-                                                class="form-control @error('tahun_keluar')
-                                              is-invalid
-                                            @enderror"
-                                                id="tahun_keluar" name="tahun_keluar" required
-                                                value="{{ $alumni->user_detail->tahun_keluar }}">
-                                            @error('tahun_keluar')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                            <label for="bagian">Lokasi Alumni</label>
+                                            <select class="custom-select" id="bagian" name="bagian">
+                                                <option value="">Pilih Bagian</option>
+                                                <option value="Barat"
+                                                    {{ $alumni->user_detail->bagian == 'Barat' ? 'selected' : '' }}</option>
+                                                    Barat</option>
+                                                <option value="Tengah"
+                                                    {{ $alumni->user_detail->bagian == 'Tengah' ? 'selected' : '' }}>
+                                                    Tengah</option>
+                                                <option value="Timur"
+                                                    {{ $alumni->user_detail->bagian == 'Timur' ? 'selected' : '' }}>Timur
+                                                </option>
+                                                <option value="Luar"
+                                                    {{ $alumni->user_detail->bagian == 'Luar' ? 'selected' : '' }}>Luar
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <a href="{{ url('/alumni') }}" class="btn btn-secondary">Batal</a>

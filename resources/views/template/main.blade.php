@@ -101,27 +101,10 @@
     </script>
 
 
-    <title>Hello, world!</title>
+    <title>LPI - ARROQY</title>
 </head>
 
 <body>
-
-    <!-- ======= Top Bar ======= -->
-    <section id="topbar" class="d-flex align-items-center">
-        <div class="container d-flex justify-content-center justify-content-md-between">
-            <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope d-flex align-items-center"><a
-                        href="mailto:lpi-arroqy@gmail.com">lpi-arroqy@gmail.com</a></i>
-                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 1234 567 89</span></i>
-            </div>
-            <div class="social-links d-none d-md-flex align-items-center">
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-whatsapp"></i></a>
-                {{-- <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a> --}}
-            </div>
-        </div>
-    </section><!-- End Top Bar-->
 
     <!-- ======= Header ======= -->
     <header id="header" class="d-flex align-items-center">
@@ -203,11 +186,9 @@
     @yield('content')
     {{-- End Content --}}
 
-    <div class="mb-0 mb-sm-auto">
-        <svg xmlns=" http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#0099ff" fill-opacity="1"
-                d="M0,288L48,282.7C96,277,192,267,288,272C384,277,480,299,576,282.7C672,267,768,213,864,202.7C960,192,1056,224,1152,234.7C1248,245,1344,235,1392,229.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-            </path>
+    <div class="mb-0 mb-sm-auto" style="margin-top: -10%">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#0099ff" fill-opacity="1" d="M0,224L1440,64L1440,320L0,320Z"></path>
         </svg>
     </div>
 
@@ -244,6 +225,6 @@
     <script src="{{ url('/assets/js/popper.min.js') }}"></script>
     <script src="{{ url('/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('/assets/js/login-register.js') }}"></script>
-    <script type="text/javascript">
-        < /body> < /
-        html >
+</body>
+
+</html>

@@ -17,7 +17,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ url('/plugins/fontawesome-free/css/all.min.css') }}">
 
-    <title>Hello, world!</title>
+    <title>Login Page</title>
 </head>
 
 <body>

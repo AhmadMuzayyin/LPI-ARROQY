@@ -282,14 +282,7 @@ class UserController extends Controller
             'fullname' => 'required|max:50',
             'nickname' => 'required|unique:users|max:10',
             'alamat' => 'required|max:255',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'nama_ayah' => 'required|max:50',
-            'pekerjaan_ayah' => 'required|max:25',
-            'nama_ibu' => 'required|max:50',
-            'pekerjaan_ibu' => 'required|max:25',
-            'tahun_masuk' => 'required',
-            'tahun_keluar' => 'required'
+            'bagian' => 'required|in:Barat,Tengah,Timur,Luar'
         ]);
 
         // dd($validasi);
@@ -299,21 +292,14 @@ class UserController extends Controller
             'role' => 6,
             'email' => strtolower($request->nickname) . '@lpi-arroqy.ac.id',
             'email_verified_at' => now(),
-            'password' => bcrypt('password'),
+            'password' => bcrypt('alumni'),
             'profil_photo' => 'Profil.jpg'
         ]);
 
         UserDetail::create([
             'user_id' => $user->id,
-            'tahun_masuk' => $request->tahun_masuk,
-            'tahun_keluar' => $request->tahun_keluar,
-            'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'nama_ayah' => $request->nama_ayah,
-            'pekerjaan_ayah' => $request->pekerjaan_ayah,
-            'nama_ibu' => $request->nama_ibu,
-            'pekerjaan_ibu' => $request->pekerjaan_ibu,
-            'alamat' => $request->alamat
+            'alamat' => $request->alamat,
+            'bagian' => $request->bagian
         ]);
 
         // $request->session()->flash('success', 'Berhasil mendaftar! Silahkan login');

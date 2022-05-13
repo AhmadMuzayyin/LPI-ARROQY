@@ -6,7 +6,7 @@
             <!-- /.login-logo -->
             <div class="card card-outline card-primary">
                 <div class="card-header text-center">
-                    <a href="{{ url('/') }}" class="h1"><b>LPI</b>-ARROQY</a>
+                    <a href="{{ url('/') }}" class="h1">LPI-ARROQY</a>
                 </div>
                 <div class="card-body">
                     @if (session('success'))

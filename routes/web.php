@@ -24,7 +24,7 @@ use App\Http\Controllers\AdministratorController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->middleware('guest');
-
+Route::get('/page', [HomeController::class, 'page'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 
